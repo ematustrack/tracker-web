@@ -265,7 +265,6 @@ def dataTable(request):
         st = None
         folio = None
         profesional = None
-        print "[DATA] -> ",data
         try:
             start = data['start']
             end = data['end']
@@ -286,6 +285,7 @@ def dataTable(request):
         profesional = str(profesional)
         start = parse_datetime(start)
         end = parse_datetime(end)
+        print "data -> ",data
         photos = None
         try:
             photos = St_work.objects.filter(idSTFolio__idPro__isnull=False).filter(idSTFolio__idST__isnull=False).filter(idSTFolio__idFolio__isnull=False).order_by('-idSTFolio__date')
@@ -326,7 +326,8 @@ def dataTable(request):
                         "profesional":ix.idSTFolio.idPro.name,
                         "date":ix.idSTFolio.date,
                         "lat":ix.idSTFolio.lat,
-                        "lng":ix.idSTFolio.lng})
+                        "lng":ix.idSTFolio.lng,
+                        "note":ix.idSTFolio.note})
         response = {
          "data":data,
         }

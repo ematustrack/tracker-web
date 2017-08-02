@@ -4,6 +4,9 @@ import {MdPaginator, MdSort} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 import {Http, Response} from '@angular/http';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { DatePipe } from '@angular/common';
+import {DataTableDetailService} from '../shared/data-table-detail.service';
+import {DataTableDetailPipe} from '../shared/data-table-detail.pipe';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/merge';
@@ -45,7 +48,8 @@ export class DataTableComponent implements OnChanges, AfterViewInit {
   constructor(
     private router: Router,
     private datatableService: DataTableService,
-    private changeDetector: ChangeDetectorRef) {
+    private changeDetector: ChangeDetectorRef,
+    private dataDetailService: DataTableDetailService) {
   }
 
   ngOnChanges() {
@@ -56,16 +60,24 @@ export class DataTableComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log("calling ngAfterViewInit")
-    //console.log("f -> ", this.f);
+
+    //
     // TODO: Remove this as it is a workaround to make the table visible when the page got reloaded
     //var eventObservable = Observable.fromEvent(
     //  this.f.nativeElement, 'keyup');
-    //console.log(eventObservable);
+    //
   }
 
-  gotoDetail(foto: string, lat: number, lng: number): void {
-    this.router.navigate(['/detail', foto, lat, lng]);
+  gotoDetail(foto: string, lat: number, lng: number, note: string, obra: string, st: string, folio: string, profesional: string): void {
+    this.dataDetailService.foto = foto;
+    this.dataDetailService.obra = obra;
+    this.dataDetailService.st = st;
+    this.dataDetailService.folio = folio;
+    this.dataDetailService.profesional = profesional;
+    this.dataDetailService.note = note;
+    this.dataDetailService.lat = lat;
+    this.dataDetailService.lng = lng;
+    this.router.navigate(['/detail']);
   }
 }
 
@@ -124,10 +136,9 @@ export class ExampleDataSource extends DataSource<DataTable> {
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<DataTable[]> {
-    console.log("[CONNECT METHOD]");
+
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
-      this._paginator.page
     ];
 
     //this._sort.mdSortChange.subscribe(() => this._paginator.pageIndex = 0);
@@ -139,13 +150,13 @@ export class ExampleDataSource extends DataSource<DataTable> {
           this.start, this.end, this.obra, this.st, this.folio, this.profesional);
       })
       .map(data => {
-        console.log("now");
+
         // Flip flag to show that loading has finished.
         this.isLoadingResults = false;
         this.isRateLimitReached = false;
-        //console.log("length -> ", (data.items).length);
+        //
         this.resultsLength = data["data"].length;
-        //console.log("DATA ITEMS -> ", data["data"].length);
+        //
         return data["data"];//.getSortedData();
       })
       .catch(() => {

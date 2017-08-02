@@ -1,8 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <md-toolbar color="primary">
-  <md-icon class="material-icons" style="font-size:40px;">whatshot</md-icon>
   <h1>
-    <a [routerLink]="['/dashboard']" routerLinkActive="active" class="tool">{{title}}</a>
+    <a [routerLink]="['/home']" routerLinkActive="active" class="tool">
+      <md-icon
+        class="material-icons"
+        style="font-size:40px; padding-right:20px;margin: -2px 3px 0 0;float: left;">
+        home
+      </md-icon>
+      {{title}}
+    </a>
   </h1>
   <span class="example-spacer"></span>
 </md-toolbar>

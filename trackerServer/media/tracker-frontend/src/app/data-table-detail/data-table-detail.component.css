@@ -20,5 +20,11 @@ button:disabled {
 }
 
 agm-map {
-  height: 300px;
+  align-content: center;
+  align-self: center;
+  height: 400px;
+  width: 100%;
+}
+#map {
+        height: 100%;
 }

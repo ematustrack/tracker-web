@@ -35,7 +35,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_2__dashboard_dashboard_component__["a" /* DashboardComponent */] },
-    { path: 'detail/:id/:lat/:lng', component: __WEBPACK_IMPORTED_MODULE_3__data_table_detail_data_table_detail_component__["a" /* DataTableDetailComponent */] }
+    { path: 'detail', component: __WEBPACK_IMPORTED_MODULE_3__data_table_detail_data_table_detail_component__["a" /* DataTableDetailComponent */] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -74,7 +74,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<md-toolbar color=\"primary\">\n  <md-icon class=\"material-icons\" style=\"font-size:40px;\">whatshot</md-icon>\n  <h1>\n    <a [routerLink]=\"['/dashboard']\" routerLinkActive=\"active\" class=\"tool\">{{title}}</a>\n  </h1>\n  <span class=\"example-spacer\"></span>\n</md-toolbar>\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<md-toolbar color=\"primary\">\n  <h1>\n    <a [routerLink]=\"['/home']\" routerLinkActive=\"active\" class=\"tool\">\n      <md-icon\n        class=\"material-icons\"\n        style=\"font-size:40px; padding-right:20px;margin: -2px 3px 0 0;float: left;\">\n        home\n      </md-icon>\n      {{title}}\n    </a>\n  </h1>\n  <span class=\"example-spacer\"></span>\n</md-toolbar>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -127,15 +127,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__filter_time_filter_time_component__ = __webpack_require__("../../../../../src/app/filter-time/filter-time.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__filter_time_filter_filter_component__ = __webpack_require__("../../../../../src/app/filter-time/filter/filter.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__data_table_data_table_component__ = __webpack_require__("../../../../../src/app/data-table/data-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__shared_selection_service__ = __webpack_require__("../../../../../src/app/shared/selection.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__data_table_detail_data_table_detail_component__ = __webpack_require__("../../../../../src/app/data-table-detail/data-table-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__filter_time_selection_selection_component__ = __webpack_require__("../../../../../src/app/filter-time/selection/selection.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__map_map_component__ = __webpack_require__("../../../../../src/app/map/map.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__data_table_data_table_component__ = __webpack_require__("../../../../../src/app/data-table/data-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_selection_service__ = __webpack_require__("../../../../../src/app/shared/selection.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__data_table_detail_data_table_detail_component__ = __webpack_require__("../../../../../src/app/data-table-detail/data-table-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__shared_data_table_detail_service__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__map_map_component__ = __webpack_require__("../../../../../src/app/map/map.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__shared_data_table_detail_pipe__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.pipe.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -178,12 +177,10 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_12__dashboard_dashboard_component__["a" /* DashboardComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__filter_time_filter_time_component__["a" /* FilterTimeComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__filter_time_filter_filter_component__["a" /* FilterComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__data_table_data_table_component__["a" /* DataTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__data_table_detail_data_table_detail_component__["a" /* DataTableDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__filter_time_selection_selection_component__["a" /* SelectionComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__map_map_component__["a" /* MapComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__data_table_data_table_component__["a" /* DataTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__data_table_detail_data_table_detail_component__["a" /* DataTableDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__map_map_component__["a" /* MapComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__shared_data_table_detail_pipe__["a" /* DataTableDetailPipe */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
@@ -192,27 +189,29 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__angular_material__["b" /* MdCardModule */],
             __WEBPACK_IMPORTED_MODULE_11__angular_material__["c" /* MdSelectModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["d" /* MdListModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["d" /* MdInputModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["e" /* MdProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["f" /* MdButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["g" /* MdSortModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["h" /* MdTableModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["i" /* MdCheckboxModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["j" /* MdPaginatorModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["e" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["f" /* MdProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["g" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["h" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["i" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["j" /* MdTableModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["k" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["l" /* MdPaginatorModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["k" /* MdDatepickerModule */],
-            __WEBPACK_IMPORTED_MODULE_11__angular_material__["l" /* MdNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["m" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_11__angular_material__["n" /* MdNativeDateModule */],
             __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__["a" /* FlexLayoutModule */],
             __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__["a" /* CdkTableModule */],
-            __WEBPACK_IMPORTED_MODULE_20__agm_core__["a" /* AgmCoreModule */].forRoot({
-                apiKey: 'AIzaSyB-5hOEDRCXoZkASuzZap7vQKgseipzlGo'
+            __WEBPACK_IMPORTED_MODULE_18__agm_core__["a" /* AgmCoreModule */].forRoot({
+                apiKey: 'AIzaSyDSxR8qyaTgNvzpEg4997fm_WC7ji1kwHY'
             })
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_16__shared_data_table_service__["a" /* DataTableService */], __WEBPACK_IMPORTED_MODULE_17__shared_selection_service__["a" /* SelectionService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_14__shared_data_table_service__["a" /* DataTableService */], __WEBPACK_IMPORTED_MODULE_15__shared_selection_service__["a" /* SelectionService */], __WEBPACK_IMPORTED_MODULE_17__shared_data_table_detail_service__["a" /* DataTableDetailService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -242,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div layout=\"row\" layout-margin layout-wrap layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title>BUSCADOR DE IMÁGENES\n    </md-card-title>\n    <md-card-subtitle>FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel\n                    required>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel\n                    required>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select placeholder=\"Obra\" [(ngModel)]=\"selectedObra\" name=\"obra\">\n                      <md-option *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.value}}\n                      </md-option>\n                    </md-select>\n                    <p>\n                      {{selectedObra}}\n                    </p>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.value}}\n                      </md-option>\n                    </md-select>\n                    <p>\n                      {{selectedST}}\n                    </p>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select placeholder=\"Folio\" [(ngModel)]=\"selectedFolio\" name=\"folio\">\n                      <md-option *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.value}}\n                      </md-option>\n                    </md-select>\n                    <p>\n                      {{selectedFolio}}\n                    </p>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.value}}\n                      </md-option>\n                    </md-select>\n                    <p>\n                      {{selectedProfesional}}\n                    </p>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n\n    <md-card-content>\n      <md-card style=\"background-color:rgba(176,224,230,0.2);\">\n        <md-card-title>RESULTADOS</md-card-title>\n        <app-data-table *ngIf=!active [start]=defaultDateStart [end]=defaultDateEnd>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=defaultDateStart\n          [end]=defaultDateEnd\n          [obra]=selectedObra\n          [st]=selectedST\n          [folio]=selectedFolio\n          [profesional]=selectedProfesional>\n          Loading data-table...\n        </app-data-table>\n        {{defaultDateStart}}\n        {{defaultDateEnd}}\n        {{obra}}\n        {{st}}\n        {{folio}}\n        {{profesional}}\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
+module.exports = "<div layout=\"row\" layout-margin layout-wrap layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title>BUSCADOR DE IMÁGENES\n    </md-card-title>\n    <md-card-subtitle>FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"start center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select placeholder=\"Obra\" [(ngModel)]=\"selectedObra\" name=\"obra\">\n                      <md-option *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select placeholder=\"Folio\" [(ngModel)]=\"selectedFolio\" name=\"folio\">\n                      <md-option *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n\n    <md-card-content>\n      <md-card style=\"background-color:rgba(176,224,230,0.2);\">\n        <md-card-title>RESULTADOS</md-card-title>\n        <app-data-table *ngIf=!active [start]=defaultDateStart [end]=defaultDateEnd>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=start\n          [end]=end\n          [obra]=obra\n          [st]=st\n          [folio]=folio\n          [profesional]=profesional>\n          Loading data-table...\n        </app-data-table>\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
 
 /***/ }),
 
@@ -277,8 +276,6 @@ var DashboardComponent = (function () {
         this.minDate = new Date(2000, 0, 1);
         this.maxDate = new Date(Date.now());
         dateAdapter.setLocale('nl'); //DD-MM-YYYY
-    }
-    DashboardComponent.prototype.ngOnInit = function () {
         this.active = false;
         var date = new Date(Date.now());
         var date_end = date;
@@ -294,6 +291,8 @@ var DashboardComponent = (function () {
           if (!this.deepEquals(params, {}))
             this.assignData(params);
         });*/
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
         this.getDataFilters();
     };
     DashboardComponent.prototype.assignData = function (params) {
@@ -309,9 +308,10 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.setData = function (array) {
         var objetos = new Array();
+        objetos.push({ value: "", viewSelect: "Todas" });
         for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
             var ix = array_1[_i];
-            objetos.push({ value: ix });
+            objetos.push({ value: ix, viewSelect: ix });
         }
         return objetos;
     };
@@ -325,17 +325,22 @@ var DashboardComponent = (function () {
             _this.profesionales = _this.setData(_this.selectionData[3]["profesional"]);
         });
     };
+    DashboardComponent.prototype.XORDates = function (a, b) {
+        return (a && b) || (!a && !b) ? true : false;
+    };
+    DashboardComponent.prototype.ANDDates = function (a, b) {
+        return (a && b);
+    };
+    DashboardComponent.prototype.GreaterDates = function (a, b) {
+        return (a > b) ? true : false;
+    };
     DashboardComponent.prototype.onSubmit = function (f) {
         this.active = false;
-        if (!f.value["init"]) {
-            alert("Ingrese la fecha de inicio.");
+        if (!this.XORDates(f.value["init"], f.value["end"])) {
+            alert("Solo ingresaste una fecha.");
             return;
         }
-        if (!f.value["end"]) {
-            alert("Ingrese la fecha final.");
-            return;
-        }
-        if (f.value["init"] > f.value["end"]) {
+        if (this.GreaterDates(f.value["init"], f.value["end"])) {
             alert("Las fechas no tienen coherencia.");
             return;
         }
@@ -351,8 +356,22 @@ var DashboardComponent = (function () {
         if (f.value["profesional"] == null) {
             console.log("Profesional no seleccionado");
         }
-        this.defaultDateStart = this.localISOTime(f.value["init"]);
-        this.defaultDateEnd = this.localISOTime(f.value["end"]);
+        if (this.ANDDates(f.value["init"], f.value["init"])) {
+            f.value["end"].setDate(f.value["end"].getDate() + 1);
+            console.log(f.value["end"]);
+            this.defaultDateStart = this.localISOTime(f.value["init"]);
+            this.defaultDateEnd = this.localISOTime(f.value["end"]);
+            this.start = this.defaultDateStart.toString();
+            this.end = this.defaultDateEnd.toString();
+        }
+        else {
+            this.start = "";
+            this.end = "";
+        }
+        this.obra = f.value["obra"];
+        this.st = f.value["st"];
+        this.folio = f.value["folio"];
+        this.profesional = f.value["profesional"];
         this.active = true;
         //this.r.navigate['/home'];
         console.log("Form values -> ", f.value);
@@ -427,7 +446,7 @@ DashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["o" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["o" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object])
 ], DashboardComponent);
 
 var _a, _b, _c, _d;
@@ -443,7 +462,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "button {\n  margin-top: 2%;\n  font-family: Arial;\n  font-size: 100%;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  margin-left: 10px;\n  margin-bottom: 1%;\n  border-radius: 4px;\n  cursor: pointer; cursor: hand;\n}\nbutton:hover {\n  background-color: #cfd8dc;\n}\nbutton:disabled {\n  background-color: #eee;\n  color: #ccc;\n  cursor: auto;\n}\n\nagm-map {\n  height: 300px;\n}\n", ""]);
+exports.push([module.i, "button {\n  margin-top: 2%;\n  font-family: Arial;\n  font-size: 100%;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  margin-left: 10px;\n  margin-bottom: 1%;\n  border-radius: 4px;\n  cursor: pointer; cursor: hand;\n}\nbutton:hover {\n  background-color: #cfd8dc;\n}\nbutton:disabled {\n  background-color: #eee;\n  color: #ccc;\n  cursor: auto;\n}\n\nagm-map {\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  height: 400px;\n  width: 100%;\n}\n#map {\n        height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -456,7 +475,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/data-table-detail/data-table-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"column\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"10px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"100%\">\n    <button (click)=\"goBack()\">Volver</button>\n    <md-card>\n      <md-card-title>Fotografía</md-card-title>\n      <md-card-content style=\"background-color:red\">\n        <md-card>\n          <div\n            fxLayout\n            fxLayoutAlign=\"center center\"\n            style=\"background-color:rgba(203,224,253,0.3);max-width:600px;max-height:300px\">\n            <img style=\"float:center;width:100%; height:100%;\" src={{foto}}/>\n          </div>\n\n          <div *ngIf=lat>\n            lat:{{lat}}\n            lng:{{lng}}\n            <agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n              <agm-marker [latitude]=\"lat\" [longitude]=\"lng\">Loading map...</agm-marker>\n            </agm-map>\n          </div>\n        </md-card>\n      </md-card-content>\n    </md-card>\n  </div>\n</div>\n"
+module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"column\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"10px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"100%\">\n    <button (click)=\"goBack()\">Volver</button>\n    <md-card>\n      <md-card-title>Fotografía</md-card-title>\n      <md-card-content>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"25%\" fxFlexOrder=\"1\">\n            <md-list>\n              <h3 md-subheader>Obra</h3>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>{{obra}}</h4>\n              </md-list-item>\n            </md-list>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"25%\" fxFlexOrder=\"2\">\n            <md-list>\n              <h3 md-subheader>ST</h3>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>{{st}}</h4>\n              </md-list-item>\n            </md-list>\n          </div>\n          <div class=\"item item-3\" fxFlex=\"25%\" fxFlexOrder=\"3\">\n            <md-list>\n              <h3 md-subheader>Folio</h3>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>{{folio}}</h4>\n              </md-list-item>\n            </md-list>\n          </div>\n          <div class=\"item item-4\" fxFlex=\"25%\" fxFlexOrder=\"4\">\n            <md-list>\n              <h3 md-subheader>Profesional</h3>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>{{profesional}}</h4>\n              </md-list-item>\n            </md-list>\n          </div>\n\n        </div>\n        <md-list>\n          <h3 md-subheader>Comentarios</h3>\n          <md-list-item>\n            <md-icon md-list-icon>label</md-icon>\n            <h4 md-line>{{note}}</h4>\n          </md-list-item>\n        </md-list>\n      </md-card-content>\n      <md-card-content>\n        <md-card>\n          <div\n            fxLayout\n            fxLayoutAlign=\"center center\"\n            style=\"background-color:rgba(203,224,253,0.01);max-width:600px;max-height:500px\">\n            <img\n              style=\"float:center;width:100%; height:100%; max-height:80%; max-width:80%\"\n              [src]=foto|dataTableDetail/>\n          </div>\n        </md-card>\n        <md-card>\n          <md-card-title>Ubicación</md-card-title>\n          <div *ngIf=lat>\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"column\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"80%\" fxFlexOffset=\"10%\" fxFlexOrder=\"1\">\n                <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"16\">\n                  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n                </agm-map>\n              </div>\n            </div>\n          </div>\n        </md-card>\n      </md-card-content>\n    </md-card>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -470,6 +489,7 @@ module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"colum
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -485,49 +505,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DataTableDetailComponent = (function () {
-    function DataTableDetailComponent(route, location, datatableService) {
-        var _this = this;
+    function DataTableDetailComponent(route, location, datatableService, dataDetailService, router) {
         this.route = route;
         this.location = location;
         this.datatableService = datatableService;
-        var img = "";
-        this.route.params.subscribe(function (params) {
-            _this.foto = params['id'];
-            _this.lat = +params['lat'];
-            _this.lng = +params['lng'];
-        });
-        this.foto = 'data:image/jpg;base64,' + this.foto.toString();
+        this.dataDetailService = dataDetailService;
+        this.router = router;
     }
     DataTableDetailComponent.prototype.ngOnInit = function () {
+        if (typeof this.dataDetailService.foto == 'undefined') {
+            alert("No hay una imagen, redirigiendo al home");
+            this.router.navigate(['/home']);
+            return;
+        }
+        this.foto = 'data:image/jpg;base64,' + this.dataDetailService.foto;
+        this.obra = this.dataDetailService.obra;
+        this.st = this.dataDetailService.st;
+        this.folio = this.dataDetailService.folio;
+        this.profesional = this.dataDetailService.profesional;
+        this.note = this.dataDetailService.note;
+        this.lat = this.dataDetailService.lat;
+        this.lng = this.dataDetailService.lng;
     };
     DataTableDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
     return DataTableDetailComponent;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", String)
-], DataTableDetailComponent.prototype, "foto", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", Number)
-], DataTableDetailComponent.prototype, "lat", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", Number)
-], DataTableDetailComponent.prototype, "lng", void 0);
 DataTableDetailComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-data-table-detail',
         template: __webpack_require__("../../../../../src/app/data-table-detail/data-table-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/data-table-detail/data-table-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["h" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["h" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_data_table_service__["a" /* DataTableService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["h" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["h" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_data_table_service__["a" /* DataTableService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _e || Object])
 ], DataTableDetailComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=data-table-detail.component.js.map
 
 /***/ }),
@@ -540,7 +556,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  position: relative;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  position: relative;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n#imagen_:hover {\n  border-color: lightgreen;\n}\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -553,7 +569,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/data-table/data-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <div\n    class=\"example-loading-shade\"\n    *ngIf=\"dataSource.isLoadingResults || dataSource.isRateLimitReached\">\n    <md-spinner *ngIf=\"dataSource.isLoadingResults\"></md-spinner>\n    <div class=\"example-rate-limit-reached\" *ngIf=\"dataSource.isRateLimitReached\">\n      Esperando por resultados...\n    </div>\n  </div>\n\n  <md-table\n    #table\n    [dataSource]=\"dataSource\"\n    class=\"example-table\"\n    mdSort\n    mdSortActive=\"date\"\n    mdSortDisableClear\n    mdSortDirection=\"asc\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Number Column -->\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n        <a (click)=\"gotoDetail(row.foto, row.lat, row.lng)\">Fotografía(click aquí)</a>\n      </md-cell>\n    </ng-container>\n\n    <!-- Title Column -->\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>Obra</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>ST</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>Folio</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>Porfesional</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef md-sort-header disableClear=\"true\">\n        Fecha\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{row.date}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n  <md-paginator\n    [length]=\"dataSource.resultsLength\"\n    [pageIndex]=\"0\"\n    [pageSize]=\"25\"\n    [pageSizeOptions]=\"[5, 10, 25, 50, 100]\"></md-paginator>\n</div>\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n\n  <md-table #table [dataSource]=\"dataSource\" class=\"example-table\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Number Column -->\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n\n        <a\n          (click)=\"\n          gotoDetail(row.foto, row.lat, row.lng, row.note, row.obra,row.st,row.folio,row.profesional)\"><img\n          src=\"data:image/jpg;base64,{{row.foto}}\"\n          id=\"imagen_\"\n          style=\"max-height:120px; max-width:120px\"\n          border=\"2\"></a>\n      </md-cell>\n    </ng-container>\n\n    <!-- Title Column -->\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>Obra</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>ST</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>Folio</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>Porfesional</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef>\n        Fecha\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{row.date | date:'dd/MM/yyyy - hh:mm:ss'}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n</div>\n"
 
 /***/ }),
 
@@ -566,26 +582,29 @@ module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <div\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableComponent; });
 /* unused harmony export ExampleDatabase */
 /* unused harmony export ExampleDataSource */
@@ -623,31 +642,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * @title Feature-rich data table
  */
 var DataTableComponent = (function () {
-    function DataTableComponent(router, datatableService, changeDetector) {
+    function DataTableComponent(router, datatableService, changeDetector, dataDetailService) {
         this.router = router;
         this.datatableService = datatableService;
         this.changeDetector = changeDetector;
+        this.dataDetailService = dataDetailService;
         this.displayedColumns = ['foto', 'obra', 'st', 'folio', 'profesional', 'date'];
     }
-    DataTableComponent.prototype.ngOnInit = function () {
+    DataTableComponent.prototype.ngOnChanges = function () {
         this.exampleDatabase = new ExampleDatabase(this.datatableService);
         //this.getDataTable(this.start, this.end);
-        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
+        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
     };
     DataTableComponent.prototype.ngAfterViewInit = function () {
-        console.log("calling ngAfterViewInit");
-        //console.log("f -> ", this.f);
+        //
         // TODO: Remove this as it is a workaround to make the table visible when the page got reloaded
         //var eventObservable = Observable.fromEvent(
         //  this.f.nativeElement, 'keyup');
-        //console.log(eventObservable);
+        //
     };
-    DataTableComponent.prototype.gotoDetail = function (foto, lat, lng) {
-        this.router.navigate(['/detail', foto, lat, lng]);
+    DataTableComponent.prototype.gotoDetail = function (foto, lat, lng, note, obra, st, folio, profesional) {
+        this.dataDetailService.foto = foto;
+        this.dataDetailService.obra = obra;
+        this.dataDetailService.st = st;
+        this.dataDetailService.folio = folio;
+        this.dataDetailService.profesional = profesional;
+        this.dataDetailService.note = note;
+        this.dataDetailService.lat = lat;
+        this.dataDetailService.lng = lng;
+        this.router.navigate(['/detail']);
     };
     return DataTableComponent;
 }());
@@ -676,29 +705,36 @@ __decorate([
     __metadata("design:type", String)
 ], DataTableComponent.prototype, "profesional", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MdPaginator */]),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MdPaginator */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MdPaginator */]) === "function" && _a || Object)
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */]) === "function" && _a || Object)
 ], DataTableComponent.prototype, "paginator", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["n" /* MdSort */]),
-    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["n" /* MdSort */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["n" /* MdSort */]) === "function" && _b || Object)
-], DataTableComponent.prototype, "sort", void 0);
 DataTableComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-data-table',
         styles: [__webpack_require__("../../../../../src/app/data-table/data-table.component.css")],
         template: __webpack_require__("../../../../../src/app/data-table/data-table.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_14__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_13__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__shared_data_table_service__["a" /* DataTableService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_16__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_16__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__["a" /* DataTableService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */]) === "function" && _e || Object])
 ], DataTableComponent);
 
 /** An example database that the data source uses to retrieve data for the table. */
 var ExampleDatabase = (function () {
     function ExampleDatabase(datatableService) {
         this.datatableService = datatableService;
+        //getDataTable call dataTableService with two dates
+        this.dataChange = new __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
     }
-    //getDataTable call dataTableService with two dates
+    Object.defineProperty(ExampleDatabase.prototype, "data", {
+        get: function () { return this.dataChange.value; },
+        enumerable: true,
+        configurable: true
+    });
     ExampleDatabase.prototype.getDataTable = function (start, end, obra, st, folio, profesional) {
+        var _this = this;
+        if (!start)
+            start = "";
+        if (!end)
+            end = "";
         if (!obra)
             obra = "";
         if (!st)
@@ -708,7 +744,10 @@ var ExampleDatabase = (function () {
         if (!profesional)
             profesional = "";
         return this.datatableService.getData(start, end, obra, st, folio, profesional)
-            .map(function (response) { return response.json(); });
+            .map(function (response) {
+            _this.dataChange.next(response.json());
+            return response.json();
+        });
     };
     return ExampleDatabase;
 }());
@@ -722,11 +761,10 @@ var ExampleDatabase = (function () {
  */
 var ExampleDataSource = (function (_super) {
     __extends(ExampleDataSource, _super);
-    function ExampleDataSource(_exampleDatabase, _paginator, _sort, start, end, obra, st, folio, profesional) {
+    function ExampleDataSource(_exampleDatabase, _paginator, start, end, obra, st, folio, profesional) {
         var _this = _super.call(this) || this;
         _this._exampleDatabase = _exampleDatabase;
         _this._paginator = _paginator;
-        _this._sort = _sort;
         _this.start = start;
         _this.end = end;
         _this.obra = obra;
@@ -734,18 +772,16 @@ var ExampleDataSource = (function (_super) {
         _this.folio = folio;
         _this.profesional = profesional;
         _this.resultsLength = 0;
+        _this.isLoadingResults = false;
+        _this.isRateLimitReached = false;
         return _this;
     }
     /** Connect function called by the table to retrieve one stream containing the data to render. */
     ExampleDataSource.prototype.connect = function () {
         var _this = this;
-        console.log("[CONNECT METHOD]");
         // Listen for any changes in the base data, sorting, filtering, or pagination
-        var displayDataChanges = [
-            this._sort.mdSortChange,
-            this._paginator.page
-        ];
-        this._sort.mdSortChange.subscribe(function () { return _this._paginator.pageIndex = 0; });
+        var displayDataChanges = [];
+        //this._sort.mdSortChange.subscribe(() => this._paginator.pageIndex = 0);
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].merge.apply(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"], displayDataChanges).startWith(null)
             .switchMap(function () {
             _this.isLoadingResults = true;
@@ -755,10 +791,10 @@ var ExampleDataSource = (function (_super) {
             // Flip flag to show that loading has finished.
             _this.isLoadingResults = false;
             _this.isRateLimitReached = false;
-            //console.log("length -> ", (data.items).length);
+            //
             _this.resultsLength = data["data"].length;
-            //console.log("DATA ITEMS -> ", data["data"].length);
-            return data["data"];
+            //
+            return data["data"]; //.getSortedData();
         })
             .catch(function () {
             _this.isLoadingResults = false;
@@ -773,239 +809,6 @@ var ExampleDataSource = (function (_super) {
 
 var _a, _b, _c, _d, _e;
 //# sourceMappingURL=data-table.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter-time.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter-time.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"row\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"10px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n    <md-input-container>\n      <input\n        mdInput\n        [mdDatepicker]=\"pickerInit\"\n        placeholder=\"Fecha de inicio\"\n        [min]=\"minDate\"\n        [max]=\"maxDate\"\n        [value]=defaultDateStart\n        [(ngModel)]=fecha\n        [name]=\"init\"\n        required\n        #init=\"ngModel\">\n      <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n    </md-input-container>\n    <md-datepicker #pickerInit></md-datepicker>\n  </div>\n  <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n    <app-filter type_d=\"Fecha de termino\" [value]=defaultDateEnd></app-filter>\n  </div>\n  <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n    <app-selection></app-selection>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter-time.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterTimeComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var FilterTimeComponent = (function () {
-    function FilterTimeComponent() {
-    }
-    FilterTimeComponent.prototype.ngOnInit = function () {
-        var date = new Date(Date.now());
-        var date_end = date;
-        this.defaultDateEnd = date_end.toISOString().replace(/T.*/, '').split('-').reverse().join('-');
-        date.setDate(date.getDate() - 1);
-        this.defaultDateStart = date.toISOString().replace(/T.*/, '').split('-').reverse().join('-');
-    };
-    return FilterTimeComponent;
-}());
-FilterTimeComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'app-filter-time',
-        template: __webpack_require__("../../../../../src/app/filter-time/filter-time.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/filter-time/filter-time.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], FilterTimeComponent);
-
-//# sourceMappingURL=filter-time.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter/filter.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter/filter.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<md-input-container>\n  <input\n    mdInput\n    [mdDatepicker]=\"picker\"\n    [placeholder]=[type_d]\n    [min]=\"minDate\"\n    [max]=\"maxDate\"\n    [value]=date\n    [(ngModel)]=fecha\n    ngModel\n    required>\n  <button mdSuffix [mdDatepickerToggle]=\"picker\"></button>\n</md-input-container>\n<md-datepicker #picker></md-datepicker>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/filter/filter.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var FilterComponent = (function () {
-    function FilterComponent(dateAdapter) {
-        this.dateAdapter = dateAdapter;
-        this.minDate = new Date(2017, 0, 1);
-        this.maxDate = new Date(Date.now());
-        dateAdapter.setLocale('nl'); //DD-MM-YYYY
-    }
-    FilterComponent.prototype.ngOnInit = function () { };
-    return FilterComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", String)
-], FilterComponent.prototype, "type_d", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", String)
-], FilterComponent.prototype, "date", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
-    __metadata("design:type", String)
-], FilterComponent.prototype, "value", void 0);
-FilterComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'app-filter',
-        template: __webpack_require__("../../../../../src/app/filter-time/filter/filter.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/filter-time/filter/filter.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["o" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["o" /* DateAdapter */]) === "function" && _a || Object])
-], FilterComponent);
-
-var _a;
-//# sourceMappingURL=filter.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/selection/selection.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/selection/selection.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"row\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"20px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n    <md-select placeholder=\"Obra\" [(ngModel)]=\"selectedObra\" name=\"obra\">\n      <md-option *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n        {{obra.value}}\n      </md-option>\n    </md-select>\n    <p>\n      {{selectedObra}}\n    </p>\n  </div>\n  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n    <md-select placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n      <md-option *ngFor=\"let st of sts\" [value]=\"st.value\">\n        {{st.value}}\n      </md-option>\n    </md-select>\n    <p>\n      {{selectedST}}\n    </p>\n  </div>\n  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n    <md-select placeholder=\"Folio\" [(ngModel)]=\"selectedFolio\" name=\"folio\">\n      <md-option *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n        {{folio.value}}\n      </md-option>\n    </md-select>\n    <p>\n      {{selectedFolio}}\n    </p>\n  </div>\n  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n    <md-select\n      placeholder=\"Profesional\"\n      [(ngModel)]=\"selectedProfesional\"\n      name=\"profesional\">\n      <md-option\n        *ngFor=\"let profesional of profesionales\"\n        [value]=\"profesional.value\">\n        {{profesional.value}}\n      </md-option>\n    </md-select>\n    <p>\n      {{selectedProfesional}}\n    </p>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/filter-time/selection/selection.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_selection_service__ = __webpack_require__("../../../../../src/app/shared/selection.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectionComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var SelectionComponent = (function () {
-    function SelectionComponent(selectionService) {
-        this.selectionService = selectionService;
-    }
-    SelectionComponent.prototype.ngOnInit = function () {
-        this.getDataFilters();
-    };
-    SelectionComponent.prototype.onSelect = function (value) {
-        this.selectedObra = value;
-    };
-    SelectionComponent.prototype.setData = function (array) {
-        var objetos = new Array();
-        objetos.push({ value: "" });
-        for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
-            var ix = array_1[_i];
-            objetos.push({ value: ix });
-        }
-        return objetos;
-    };
-    SelectionComponent.prototype.getDataFilters = function () {
-        var _this = this;
-        this.selectionService.getData().then(function (data) {
-            _this.selectionData = data;
-            _this.obras = _this.setData(_this.selectionData[2]["obra"]);
-            _this.sts = _this.setData(_this.selectionData[0]["st"]);
-            _this.folios = _this.setData(_this.selectionData[1]["folio"]);
-            _this.profesionales = _this.setData(_this.selectionData[3]["profesional"]);
-        });
-    };
-    return SelectionComponent;
-}());
-SelectionComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'app-selection',
-        template: __webpack_require__("../../../../../src/app/filter-time/selection/selection.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/filter-time/selection/selection.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_selection_service__["a" /* SelectionService */]) === "function" && _a || Object])
-], SelectionComponent);
-
-var _a;
-//# sourceMappingURL=selection.component.js.map
 
 /***/ }),
 
@@ -1075,6 +878,75 @@ MapComponent = __decorate([
 ], MapComponent);
 
 //# sourceMappingURL=map.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/data-table-detail.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableDetailPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DataTableDetailPipe = (function () {
+    function DataTableDetailPipe(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    DataTableDetailPipe.prototype.transform = function (value) {
+        return this.sanitizer.bypassSecurityTrustUrl(value);
+    };
+    return DataTableDetailPipe;
+}());
+DataTableDetailPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Y" /* Pipe */])({
+        name: 'dataTableDetail'
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _a || Object])
+], DataTableDetailPipe);
+
+var _a;
+//# sourceMappingURL=data-table-detail.pipe.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/data-table-detail.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableDetailService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DataTableDetailService = (function () {
+    function DataTableDetailService() {
+    }
+    return DataTableDetailService;
+}());
+DataTableDetailService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], DataTableDetailService);
+
+//# sourceMappingURL=data-table-detail.service.js.map
 
 /***/ }),
 

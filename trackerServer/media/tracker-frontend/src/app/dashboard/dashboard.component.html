@@ -9,7 +9,7 @@
           class="container"
           fxLayout
           fxLayout.xs="column"
-          fxLayoutAlign="center"
+          fxLayoutAlign="start center"
           fxLayoutGap="10px"
           fxLayoutGap.xs="0">
           <div class="item item-1" fxFlex="90%" fxFlexOrder="1">
@@ -17,9 +17,10 @@
               class="container"
               fxLayout
               fxLayout.xs="row"
-              fxLayoutAlign="center"
+              fxLayoutAlign="start center"
               fxLayoutGap="10px"
               fxLayoutGap.xs="0">
+
               <div class="item item-1" fxFlex="20%" fxFlexOrder="1">
                 <md-input-container>
                   <input
@@ -64,9 +65,6 @@
                         {{obra.viewSelect}}
                       </md-option>
                     </md-select>
-                    <p>
-                      {{selectedObra}}
-                    </p>
                   </div>
                   <div class="item item-2" fxFlex="30%" fxFlexOrder="2">
                     <md-select placeholder="ST" [(ngModel)]="selectedST" name="st">
@@ -74,9 +72,6 @@
                         {{st.viewSelect}}
                       </md-option>
                     </md-select>
-                    <p>
-                      {{selectedST}}
-                    </p>
                   </div>
                   <div class="item item-3" fxFlex="30%" fxFlexOrder="3">
                     <md-select placeholder="Folio" [(ngModel)]="selectedFolio" name="folio">
@@ -84,9 +79,6 @@
                         {{folio.viewSelect}}
                       </md-option>
                     </md-select>
-                    <p>
-                      {{selectedFolio}}
-                    </p>
                   </div>
                   <div class="item item-4" fxFlex="30%" fxFlexOrder="4">
                     <md-select
@@ -99,9 +91,6 @@
                         {{profesional.viewSelect}}
                       </md-option>
                     </md-select>
-                    <p>
-                      {{selectedProfesional}}
-                    </p>
                   </div>
                 </div>
               </div>
@@ -130,12 +119,6 @@
           [profesional]=profesional>
           Loading data-table...
         </app-data-table>
-        {{defaultDateStart}}
-        {{defaultDateEnd}}
-        {{obra}}
-        {{st}}
-        {{folio}}
-        {{profesional}}
       </md-card>
     </md-card-content>
     <md-card-footer style="text-align:center">© 2017</md-card-footer>

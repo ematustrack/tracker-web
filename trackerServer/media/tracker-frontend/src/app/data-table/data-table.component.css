@@ -14,7 +14,9 @@
   padding-left: 24px;
   font-size: 20px;
 }
-
+#imagen_:hover {
+  border-color: lightgreen;
+}
 .example-table {
   overflow: auto;
   min-height: 300px;
