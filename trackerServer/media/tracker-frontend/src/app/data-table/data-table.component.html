@@ -1,0 +1,57 @@
+<div class="example-container mat-elevation-z8">
+
+  <md-table #table [dataSource]="dataSource" class="example-table">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Number Column -->
+    <ng-container cdkColumnDef="foto">
+      <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>
+      <md-cell *cdkCellDef="let row">
+        <a (click)="gotoDetail(row.foto, row.lat, row.lng)">Fotografía(click aquí)</a>
+      </md-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container cdkColumnDef="obra">
+      <md-header-cell *cdkHeaderCellDef>Obra</md-header-cell>
+      <md-cell *cdkCellDef="let row">{{ row.obra }}</md-cell>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container cdkColumnDef="st">
+      <md-header-cell *cdkHeaderCellDef>ST</md-header-cell>
+      <md-cell *cdkCellDef="let row">{{ row.st }}</md-cell>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container cdkColumnDef="folio">
+      <md-header-cell *cdkHeaderCellDef>Folio</md-header-cell>
+      <md-cell *cdkCellDef="let row">{{ row.folio }}</md-cell>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container cdkColumnDef="profesional">
+      <md-header-cell *cdkHeaderCellDef>Porfesional</md-header-cell>
+      <md-cell *cdkCellDef="let row">{{ row.profesional }}</md-cell>
+    </ng-container>
+
+    <!-- Created Column -->
+    <ng-container cdkColumnDef="date">
+      <md-header-cell *cdkHeaderCellDef>
+        Fecha
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row">{{row.date}}</md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+
+  <md-paginator
+    [length]="dataSource.resultsLength"
+    [pageIndex]="0"
+    [pageSize]="25"
+    [pageSizeOptions]="[5, 10, 25, 50, 100]"></md-paginator>
+</div>
