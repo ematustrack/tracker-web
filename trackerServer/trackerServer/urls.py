@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^server/', include('server.urls')),
     url(r'^$', TemplateView.as_view(template_name="ang_home.html"), name='index'),
+    url(r'^home/$', TemplateView.as_view(template_name="ang_home.html"), name='index'),
 ]

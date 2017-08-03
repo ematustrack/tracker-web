@@ -32,7 +32,6 @@ def insertData(request):
             body = json.loads(body_unicode)
             data = body
         except ValueError:
-            print "Error with json input"
             response = {
                 "message":"error",
                 "status":406,
@@ -71,20 +70,27 @@ def insertData(request):
         # Create path to a image
         path="images/"+str(date_time_path)+str(data['ST_string'])+str(data['Folio_string'])+".jpg"
         #print "time -> ", timezone.localtime(timezone.now())
+
         try:
-            st_f=St_folio.objects.get(idST=st, idFolio=folio)
+            st_f=St_folio.objects.get(idST=st, idFolio=folio, path_img="")
             st_f.date = date_time
             st_f.path_img = path
             st_f.lng = lng
             st_f.note = note
             st_f.lat = lat
             st_f.save()
+            #Now is necessary add ST,Folio object
+            new_ = St_folio.objects.create(idST=ST(st), idFolio=Folio(folio), idPro=st_f.idPro, path_img="")
+            #Link with St_work
+            st_w = St_work.objects.get(idSTFolio__id=st_f.id)
+            St_work.objects.create(idObra=st_w.idObra, idSTFolio=new_)
         except:
             response = {
              "message":"These data already existed",
              "status":400,
             }
             return HttpResponse(json.dumps(response),content_type='application/json')
+
         #Recieve data
         #Insert image in route path
         try:
@@ -141,7 +147,11 @@ def getSTFolios(request):
         for ix in dct:
             list_folios = []
             for iy in dct[ix]:
-                list_folios.append({"number":iy})
+                list_folios.append(iy)
+            tmp_list = list(set(list_folios))
+            list_folios = []
+            for value in tmp_list:
+                list_folios.append({"number":value})
             list_res.append({"st":ix, "folios":list_folios})
 
         return HttpResponse(json.dumps(list_res), content_type="application/json")
@@ -254,7 +264,6 @@ def dataTable(request):
             body_unicode = request.body.decode('utf-8')
             data = json.loads(body_unicode)
         except ValueError:
-            print "Error with json input"
             response = {
                 "message":"error",
             }
@@ -285,12 +294,12 @@ def dataTable(request):
         profesional = str(profesional)
         start = parse_datetime(start)
         end = parse_datetime(end)
-        print "data -> ",data
         photos = None
+
         try:
             photos = St_work.objects.filter(idSTFolio__idPro__isnull=False).filter(idSTFolio__idST__isnull=False).filter(idSTFolio__idFolio__isnull=False).order_by('-idSTFolio__date')
+            photos = photos.exclude(idSTFolio__path_img='')
             if start != None and end != None:
-                print "case"
                 photos=photos.filter(idSTFolio__date__range=[start, end])
             if obra != "":
                 photos=photos.filter(idObra__name=obra)

@@ -25,7 +25,7 @@ class St_folio(models.Model):
     idST = models.ForeignKey('ST', blank=True, null=True)
     idFolio = models.ForeignKey('Folio', blank=True, null=True)
     class Meta:
-        unique_together = (('idST', 'idFolio'),)
+        unique_together = (('idST', 'idFolio', 'path_img'),)
     idPro = models.ForeignKey('Pro', blank=True, null=True)
     path_img = models.TextField(blank=True, null=True)
     note = models.TextField(blank=True, null=True)

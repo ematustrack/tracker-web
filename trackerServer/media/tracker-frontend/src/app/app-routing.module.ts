@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'detail', component: DataTableDetailComponent }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 

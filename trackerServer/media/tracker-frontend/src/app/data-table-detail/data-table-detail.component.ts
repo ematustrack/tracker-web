@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router }   from '@angular/router';
-import { Location }                 from '@angular/common';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 
 import { DataTable } from './../shared/data-table';
 import 'rxjs/add/operator/switchMap';
@@ -13,7 +13,7 @@ import { DataTableDetailService } from './../shared/data-table-detail.service';
   styleUrls: ['./data-table-detail.component.css']
 })
 export class DataTableDetailComponent implements OnInit {
-
+  providers: [Location, { provide: LocationStrategy, useClass: HashLocationStrategy }]
   foto: string;
   lat: number;
   lng: number;
