@@ -25,7 +25,6 @@ export class DataTableService {
 
   getData(start: string, end: string, obra: string, st: string, folio: string, profesional: string): Observable<Response> {
     const url = `${this.Url}/server/datatable/`;
-    console.log("url -> ", url);
     const options = new RequestOptions({
       headers: this.headers,
     });

@@ -21,6 +21,7 @@ export class DataTableDetailComponent implements OnInit {
   obra: string;
   st: string;
   folio: string;
+  phone: string;
   profesional: string;
 
   constructor(
@@ -37,14 +38,14 @@ export class DataTableDetailComponent implements OnInit {
       this.router.navigate(['/home']);
       return;
     }
-
-    this.foto = 'data:image/jpg;base64,' + this.dataDetailService.foto;
+    this.foto = this.dataDetailService.foto;
     this.obra = this.dataDetailService.obra;
     this.st = this.dataDetailService.st;
     this.folio = this.dataDetailService.folio;
     this.profesional = this.dataDetailService.profesional;
     this.note = this.dataDetailService.note;
     this.lat = this.dataDetailService.lat;
+    this.phone = this.dataDetailService.phone;
     this.lng = this.dataDetailService.lng;
   }
   goBack(): void {

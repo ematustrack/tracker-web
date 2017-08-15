@@ -12,17 +12,20 @@ from django.utils.timezone import is_aware, make_aware
 import dateutil.parser
 import os.path
 import json
+import codecs
 import pytz
 from base64 import b64encode, b64decode
 from datetime import datetime, date
 from server.models import St_folio, ST, Folio, St_work
 
 from django.shortcuts import render
-
+from django.utils.decorators import decorator_from_middleware
+from filter_phone_middleware import FilterPhone
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world")
 
+@FilterPhone
 def insertData(request):
     print "REQUEST ---> ", request
     if request.method == "POST":
@@ -45,7 +48,9 @@ def insertData(request):
         lng = None
         note = None
         date = None
+        phone = None
         try:
+            phone = request.META['HTTP_TOKEN_NUMBER']
             imgBase64 = data['FileName']
             date = data['CreatedOn']
             st = data['ST_string']
@@ -64,26 +69,24 @@ def insertData(request):
         lat = float(lat)
         lng = float(lng)
         note = str(note)
-
+        phone = str(phone)
         date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         date_time_path = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        date_ = datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ")
+        date_parse = date_.strftime("%Y-%m-%d %H:%M:%S")
+        date_parse_path = date_.strftime("%Y-%m-%d-%H-%M-%S")
+        #I NEED ADD THIS DATE 'DATE_PARSE' TO PATH AND DATE INSERT
         # Create path to a image
-        path="images/"+str(date_time_path)+str(data['ST_string'])+str(data['Folio_string'])+".jpg"
+        path="media/images/"+str(date_parse_path)+str(data['ST_string'])+str(data['Folio_string'])+".png"
         #print "time -> ", timezone.localtime(timezone.now())
-
         try:
-            st_f=St_folio.objects.get(idST=st, idFolio=folio, path_img="")
-            st_f.date = date_time
-            st_f.path_img = path
-            st_f.lng = lng
-            st_f.note = note
-            st_f.lat = lat
-            st_f.save()
-            #Now is necessary add ST,Folio object
-            new_ = St_folio.objects.create(idST=ST(st), idFolio=Folio(folio), idPro=st_f.idPro, path_img="")
-            #Link with St_work
-            st_w = St_work.objects.get(idSTFolio__id=st_f.id)
-            St_work.objects.create(idObra=st_w.idObra, idSTFolio=new_)
+            st_tmp=ST.objects.get(name=st)
+            folio_tmp=Folio.objects.get(name=folio)
+            st_temp = St_folio.objects.filter(idST=st_tmp,idFolio=folio_tmp).first()
+            pro = st_temp.idPro
+            st_folio=St_folio.objects.create(idST=st_tmp,idFolio=folio_tmp, idPro=pro, date=date_parse, path_img=path,lng=lng,lat=lat,note=note, phone=phone)
+            work = St_work.objects.get(idSTFolio=st_temp.id)
+            St_work.objects.create(idObra=work.idObra, idSTFolio=st_folio)
         except:
             response = {
              "message":"These data already existed",
@@ -121,6 +124,7 @@ def json_serial(obj):
         return serial
     raise TypeError ("Type %s not serializable" % type(obj))
 
+@FilterPhone
 def getSTFolios(request):
     print "REQUEST ----> ", request
     if request.method == "GET":
@@ -314,18 +318,40 @@ def dataTable(request):
              "message":"No exists data",
              }
             return HttpResponse(json.dumps(response),content_type='application/json',status=400)
+        '''
+        for ix in photos:
+            encoded_string = None
+            text = None
+            print "./"+str(ix.idSTFolio.path_img)
+            with open("./"+str(ix.idSTFolio.path_img), "rb") as image_file:
+                #encoded_string = image_file.read()
+                header = image_file.read(2)
+                text = image_file.read().decode('utf-16')
+                ix.idSTFolio.path_img = text
 
         try:
             for ix in photos:
                 encoded_string = None
-                with open("./"+str(ix.idSTFolio.path_img), "rb") as image_file:
-                    encoded_string = b64encode(image_file.read())
+                print "./"+str(ix.idSTFolio.path_img)
+                with open("./"+str(ix.idSTFolio.path_img), "rb","utf-16") as image_file:
+                    encoded_string = image_file.read()
                     ix.idSTFolio.path_img = encoded_string
         except:
             response = {
              "message":"Error with base64 code",
             }
             return HttpResponse(json.dumps(response),content_type='application/json',status=400)
+        '''
+        '''
+        try:
+            with open(valid_image, "rb") as f:
+                return HttpResponse(f.read(), content_type="image/jpeg")
+        except IOError:
+            red = Image.new('RGBA', (1, 1), (255,0,0,0))
+            response = HttpResponse(content_type="image/jpeg")
+            red.save(response, "JPEG")
+            return response
+        '''
         data = []
         for ix in photos:
             data.append({"foto":ix.idSTFolio.path_img,
@@ -333,10 +359,12 @@ def dataTable(request):
                         "st":ix.idSTFolio.idST.name,
                         "folio":ix.idSTFolio.idFolio.name,
                         "profesional":ix.idSTFolio.idPro.name,
+                        "phone":ix.idSTFolio.idPro.phone,
                         "date":ix.idSTFolio.date,
                         "lat":ix.idSTFolio.lat,
                         "lng":ix.idSTFolio.lng,
                         "note":ix.idSTFolio.note})
+        #print data
         response = {
          "data":data,
         }

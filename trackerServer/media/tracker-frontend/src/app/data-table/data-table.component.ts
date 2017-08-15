@@ -68,7 +68,7 @@ export class DataTableComponent implements OnChanges, AfterViewInit {
     //
   }
 
-  gotoDetail(foto: string, lat: number, lng: number, note: string, obra: string, st: string, folio: string, profesional: string): void {
+  gotoDetail(foto: string, lat: number, lng: number, note: string, obra: string, st: string, folio: string, profesional: string, phone: string): void {
     this.dataDetailService.foto = foto;
     this.dataDetailService.obra = obra;
     this.dataDetailService.st = st;
@@ -77,6 +77,7 @@ export class DataTableComponent implements OnChanges, AfterViewInit {
     this.dataDetailService.note = note;
     this.dataDetailService.lat = lat;
     this.dataDetailService.lng = lng;
+    this.dataDetailService.phone = phone;
     this.router.navigate(['/detail']);
   }
 }

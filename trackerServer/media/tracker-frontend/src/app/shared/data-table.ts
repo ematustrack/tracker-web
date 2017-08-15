@@ -7,6 +7,7 @@ export interface DataTable {
   date: Date;
   lat: number;
   lng: number;
+  phone: string;
   note: string;
 }
 

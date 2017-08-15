@@ -22,7 +22,7 @@ button:disabled {
 agm-map {
   align-content: center;
   align-self: center;
-  height: 400px;
+  height: 100%;
   width: 100%;
 }
 #map {

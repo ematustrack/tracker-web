@@ -8,7 +8,6 @@
   <div class="item item-1" fxFlex="100%">
     <button (click)="goBack()">Volver</button>
     <md-card>
-      <md-card-title>Fotografía</md-card-title>
       <md-card-content>
         <div
           class="container"
@@ -17,54 +16,71 @@
           fxLayoutAlign="center"
           fxLayoutGap="10px"
           fxLayoutGap.xs="0">
-          <div class="item item-1" fxFlex="25%" fxFlexOrder="1">
+          <div class="item item-1" fxFlexOffset="10%" fxFlex="30%" fxFlexOrder="1">
             <md-list>
-              <h3 md-subheader>Obra</h3>
+              <md-card-title>Información</md-card-title>
               <md-list-item>
                 <md-icon md-list-icon>label</md-icon>
-                <h4 md-line>{{obra}}</h4>
+                <h4 md-line>Obra</h4>
+                <p md-line>
+                  {{obra}}
+                </p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <md-icon md-list-icon>label</md-icon>
+                <h4 md-line>ST</h4>
+                <p md-line>
+                  {{st}}
+                </p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <md-icon md-list-icon>label</md-icon>
+                <h4 md-line>Folio</h4>
+                <p md-line>
+                  {{folio}}
+                </p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <md-icon md-list-icon>label</md-icon>
+                <h4 md-line>Profesional</h4>
+                <p md-line>
+                  {{profesional}}
+                </p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <md-icon md-list-icon>label</md-icon>
+                <h4 md-line>Comentarios</h4>
+                <p md-line>
+                  {{note}}
+                </p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <md-icon md-list-icon>label</md-icon>
+                <h4 md-line>Telefono</h4>
+                <p md-line>
+                  {{phone}}
+                </p>
               </md-list-item>
             </md-list>
           </div>
-          <div class="item item-2" fxFlex="25%" fxFlexOrder="2">
-            <md-list>
-              <h3 md-subheader>ST</h3>
-              <md-list-item>
-                <md-icon md-list-icon>label</md-icon>
-                <h4 md-line>{{st}}</h4>
-              </md-list-item>
-            </md-list>
+          <div class="item item-3" fxFlex="5%" fxFlexOrder="2"></div>
+          <div class="item item-2" fxFlex="55%" fxFlexOrder="3">
+            <md-card-title>Ubicación</md-card-title>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
           </div>
-          <div class="item item-3" fxFlex="25%" fxFlexOrder="3">
-            <md-list>
-              <h3 md-subheader>Folio</h3>
-              <md-list-item>
-                <md-icon md-list-icon>label</md-icon>
-                <h4 md-line>{{folio}}</h4>
-              </md-list-item>
-            </md-list>
-          </div>
-          <div class="item item-4" fxFlex="25%" fxFlexOrder="4">
-            <md-list>
-              <h3 md-subheader>Profesional</h3>
-              <md-list-item>
-                <md-icon md-list-icon>label</md-icon>
-                <h4 md-line>{{profesional}}</h4>
-              </md-list-item>
-            </md-list>
-          </div>
-
         </div>
-        <md-list>
-          <h3 md-subheader>Comentarios</h3>
-          <md-list-item>
-            <md-icon md-list-icon>label</md-icon>
-            <h4 md-line>{{note}}</h4>
-          </md-list-item>
-        </md-list>
       </md-card-content>
-      <md-card-content>
+
+      <md-card-content style="padding-top:3%">
         <md-card>
+          <md-card-title>Fotografía</md-card-title>
           <div
             fxLayout
             fxLayoutAlign="center center"
@@ -72,25 +88,6 @@
             <img
               style="float:center;width:100%; height:100%; max-height:80%; max-width:80%"
               [src]=foto|dataTableDetail/>
-          </div>
-        </md-card>
-        <md-card>
-          <md-card-title>Ubicación</md-card-title>
-          <div *ngIf=lat>
-            <div
-              class="container"
-              fxLayout
-              fxLayout.xs="column"
-              fxLayoutAlign="start center"
-              fxLayoutGap="10px"
-              fxLayoutGap.xs="0">
-
-              <div class="item item-1" fxFlex="80%" fxFlexOffset="10%" fxFlexOrder="1">
-                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
-                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                </agm-map>
-              </div>
-            </div>
           </div>
         </md-card>
       </md-card-content>

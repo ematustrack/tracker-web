@@ -12,7 +12,6 @@ export class SelectionService {
 
   getData(): Promise<SelectionData> {
     const url = `${this.Url}/server/datafilter/`;
-    console.log("url -> ", url);
 
     return this.http
       .get(url)

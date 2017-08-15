@@ -5,6 +5,7 @@ import {MdSelectChange} from '@angular/material';
 import {SelectionService} from '../shared/selection.service';
 import {SelectionData} from '../shared/selection-data';
 import {ActivatedRoute, Router } from '@angular/router';
+import { Compiler } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,7 +28,11 @@ export class DashboardComponent implements OnInit {
     private dateAdapter: DateAdapter<Date>,
     private selectionService: SelectionService,
     private route: ActivatedRoute,
-    private r: Router) {
+    private r: Router,
+    private _compiler: Compiler) {
+    //ClearCache
+
+
     dateAdapter.setLocale('nl'); //DD-MM-YYYY
     this.active = false;
     let date = new Date(Date.now());
@@ -37,8 +42,6 @@ export class DashboardComponent implements OnInit {
     this.defaultDateStart.setDate(this.defaultDateStart.getDate() - 1);
     this.defaultDateStart = this.localISOTime(this.defaultDateStart);
     this.defaultDateEnd = this.localISOTime(this.defaultDateEnd);
-    console.log("init ", this.defaultDateStart);
-    console.log("end ", this.defaultDateEnd);
     //console.log(this.route.snapshot.params["init"]);
     /*this.route.params.subscribe(params => {
       if (!this.deepEquals(params, {}))
@@ -47,7 +50,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this._compiler.clearCache();
     this.getDataFilters();
 
   }

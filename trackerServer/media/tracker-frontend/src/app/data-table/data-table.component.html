@@ -1,22 +1,17 @@
 <div class="example-container mat-elevation-z8">
-
   <md-table #table [dataSource]="dataSource" class="example-table">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Number Column -->
+
     <ng-container cdkColumnDef="foto">
       <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>
       <md-cell *cdkCellDef="let row">
-
         <a
           (click)="
-          gotoDetail(row.foto, row.lat, row.lng, row.note, row.obra,row.st,row.folio,row.profesional)"><img
-          src="data:image/jpg;base64,{{row.foto}}"
-          id="imagen_"
-          style="max-height:120px; max-width:120px"
-          border="2"></a>
+          gotoDetail(row.foto, row.lat, row.lng, row.note, row.obra,row.st,row.folio,row.profesional, row.phone)"><img [src]=row.foto|dataTableDetail id="imagen_" border="2"></a>
       </md-cell>
     </ng-container>
 

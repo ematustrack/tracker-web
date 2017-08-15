@@ -32,18 +32,23 @@ class St_folio(models.Model):
     lng = models.FloatField(blank=True, null=True)
     lat = models.FloatField(blank=True, null=True)
     date = models.DateTimeField(blank=True, null=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)
     def __str__(self):
-        return str(self.id) + "st_folio"
+        if self.date != None:
+            return str(self.idST) + str(self.idFolio)+"-"+str(self.date)
+        else:
+            return str(self.idST) + str(self.idFolio)+" => PLANTILLA"
 
 class St_work(models.Model):
     class Meta:
         unique_together = (('idObra', 'idSTFolio'),)
     idObra = models.ForeignKey('Work', on_delete=models.CASCADE)
-    idSTFolio = models.OneToOneField('ST_folio', on_delete=models.CASCADE)
+    idSTFolio = models.OneToOneField('St_folio', on_delete=models.CASCADE)
     def __str__(self):
-        return self.idObra.name + "/st_folio" + str(self.idSTFolio.id)
+        return self.idObra.name + "/"+str(self.idSTFolio)
 
 class Pro(models.Model):
     name = models.CharField(max_length=50, primary_key=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)
     def __str__(self):
         return self.name

@@ -8,6 +8,7 @@ export class DataTableDetailService {
   note: string;
   obra: string;
   st: string;
+  phone: string;
   folio: string;
   profesional: string;
   constructor() { }

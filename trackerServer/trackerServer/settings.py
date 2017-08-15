@@ -25,7 +25,7 @@ SECRET_KEY = '%u(pc+4+gk46g4$lk+&8843gpl*hcqkqbl)t#v4-+#=u)b^o0t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'127.0.0.1',u'localhost', u'54.175.253.151']
+ALLOWED_HOSTS = [u'127.0.0.1',u'localhost', u'54.175.253.151', u'9161df36.ngrok.io']
 
 
 # Application definition
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware'
+    'django.middleware.common.CommonMiddleware',
 ]
 
 CSRF_COOKIE_SECURE = False
@@ -63,9 +63,12 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -125,6 +128,10 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+#/Users/fabulias/Documents/Codes/tracker/tracker-web/trackerServer
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
