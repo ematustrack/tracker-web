@@ -359,7 +359,7 @@ def dataTable(request):
                         "st":ix.idSTFolio.idST.name,
                         "folio":ix.idSTFolio.idFolio.name,
                         "profesional":ix.idSTFolio.idPro.name,
-                        "phone":ix.idSTFolio.idPro.phone,
+                        "phone":ix.idSTFolio.phone,
                         "date":ix.idSTFolio.date,
                         "lat":ix.idSTFolio.lat,
                         "lng":ix.idSTFolio.lng,
