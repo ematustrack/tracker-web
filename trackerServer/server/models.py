@@ -26,6 +26,7 @@ class St_folio(models.Model):
     idFolio = models.ForeignKey('Folio', blank=True, null=True)
     class Meta:
         unique_together = (('idST', 'idFolio', 'path_img'),)
+        verbose_name_plural = 'ST y Folios asociados'
     idPro = models.ForeignKey('Pro', blank=True, null=True)
     path_img = models.TextField(blank=True, null=True)
     note = models.TextField(blank=True, null=True)
@@ -42,6 +43,7 @@ class St_folio(models.Model):
 class St_work(models.Model):
     class Meta:
         unique_together = (('idObra', 'idSTFolio'),)
+        verbose_name_plural = 'Obras asociadas'
     idObra = models.ForeignKey('Work', on_delete=models.CASCADE)
     idSTFolio = models.OneToOneField('St_folio', on_delete=models.CASCADE)
     def __str__(self):

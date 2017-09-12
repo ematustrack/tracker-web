@@ -119,18 +119,6 @@ export class DashboardComponent implements OnInit {
       alert("Las fechas no tienen coherencia.")
       return;
     }
-    if (f.value["obra"] == null) {
-      console.log("Obra no seleccionada");
-    }
-    if (f.value["st"] == null) {
-      console.log("ST no seleccionada");
-    }
-    if (f.value["folio"] == null) {
-      console.log("Folio no seleccionado");
-    }
-    if (f.value["profesional"] == null) {
-      console.log("Profesional no seleccionado");
-    }
     if (this.ANDDates(f.value["init"], f.value["init"])) {
       f.value["end"].setDate(f.value["end"].getDate() + 1);
       console.log(f.value["end"]);
@@ -149,7 +137,6 @@ export class DashboardComponent implements OnInit {
     this.profesional = f.value["profesional"];
     this.active = true;
     //this.r.navigate['/home'];
-    console.log("Form values -> ", f.value);
   }
 
   deepEquals(x, y) {

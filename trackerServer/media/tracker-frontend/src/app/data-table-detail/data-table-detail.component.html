@@ -6,7 +6,7 @@
   fxLayoutGap="10px"
   fxLayoutGap.xs="0">
   <div class="item item-1" fxFlex="100%">
-    <button (click)="goBack()">Volver</button>
+    <button (click)="goBack()" class="font1">Volver</button>
     <md-card>
       <md-card-content>
         <div
@@ -18,7 +18,7 @@
           fxLayoutGap.xs="0">
           <div class="item item-1" fxFlexOffset="10%" fxFlex="30%" fxFlexOrder="1">
             <md-list>
-              <md-card-title>Información</md-card-title>
+              <md-card-title class="font">Información</md-card-title>
               <md-list-item>
                 <md-icon md-list-icon>label</md-icon>
                 <h4 md-line>Obra</h4>
@@ -70,7 +70,7 @@
           </div>
           <div class="item item-3" fxFlex="5%" fxFlexOrder="2"></div>
           <div class="item item-2" fxFlex="55%" fxFlexOrder="3">
-            <md-card-title>Ubicación</md-card-title>
+            <md-card-title class="font">Ubicación</md-card-title>
             <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
               <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
             </agm-map>
@@ -80,7 +80,7 @@
 
       <md-card-content style="padding-top:3%">
         <md-card>
-          <md-card-title>Fotografía</md-card-title>
+          <md-card-title class="font">Fotografía</md-card-title>
           <div
             fxLayout
             fxLayoutAlign="center center"

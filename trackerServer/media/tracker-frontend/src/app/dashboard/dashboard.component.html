@@ -1,8 +1,13 @@
-<div layout="row" layout-margin layout-wrap layout-align="center center">
+<div
+  class="font"
+  layout="row"
+  layout-margin
+  layout-wrap
+  layout-align="center center">
   <md-card flex="100" class="md-card-dashboard">
-    <md-card-title>BUSCADOR DE IMÁGENES
+    <md-card-title class="font">Buscador de Imágenes
     </md-card-title>
-    <md-card-subtitle>FILTROS</md-card-subtitle >
+    <md-card-subtitle class="font">FILTROS</md-card-subtitle >
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <md-card>
         <div
@@ -22,11 +27,11 @@
               fxLayoutGap.xs="0">
 
               <div class="item item-1" fxFlex="20%" fxFlexOrder="1">
-                <md-input-container>
+                <md-input-container class="font">
                   <input
                     mdInput
                     [mdDatepicker]="pickerInit"
-                    placeholder="Fecha inicial"
+                    placeholder="Fecha Inicial"
                     [min]="minDate"
                     [max]="maxDate"
                     [value]="10-2-2017"
@@ -38,11 +43,11 @@
                 <md-datepicker #pickerInit></md-datepicker>
               </div>
               <div class="item item-2" fxFlex="23%" fxFlexOrder="2">
-                <md-input-container>
+                <md-input-container class="font">
                   <input
                     mdInput
                     [mdDatepicker]="pickerEnd"
-                    placeholder="Fecha final"
+                    placeholder="Fecha Final"
                     [min]="minDate"
                     [max]="maxDate"
                     name="end"
@@ -60,32 +65,42 @@
                   fxLayoutGap="20px"
                   fxLayoutGap.xs="0">
                   <div class="item item-1" fxFlex="20%" fxFlexOrder="1">
-                    <md-select placeholder="Obra" [(ngModel)]="selectedObra" name="obra">
-                      <md-option *ngFor="let obra of obras" [value]="obra.value">
+                    <md-select
+                      class="font"
+                      placeholder="Obra"
+                      [(ngModel)]="selectedObra"
+                      name="obra">
+                      <md-option class="font" *ngFor="let obra of obras" [value]="obra.value">
                         {{obra.viewSelect}}
                       </md-option>
                     </md-select>
                   </div>
                   <div class="item item-2" fxFlex="30%" fxFlexOrder="2">
-                    <md-select placeholder="ST" [(ngModel)]="selectedST" name="st">
-                      <md-option *ngFor="let st of sts" [value]="st.value">
+                    <md-select class="font" placeholder="ST" [(ngModel)]="selectedST" name="st">
+                      <md-option class="font" *ngFor="let st of sts" [value]="st.value">
                         {{st.viewSelect}}
                       </md-option>
                     </md-select>
                   </div>
                   <div class="item item-3" fxFlex="30%" fxFlexOrder="3">
-                    <md-select placeholder="Folio" [(ngModel)]="selectedFolio" name="folio">
-                      <md-option *ngFor="let folio of folios" [value]="folio.value">
+                    <md-select
+                      class="font"
+                      placeholder="Folio"
+                      [(ngModel)]="selectedFolio"
+                      name="folio">
+                      <md-option class="font" *ngFor="let folio of folios" [value]="folio.value">
                         {{folio.viewSelect}}
                       </md-option>
                     </md-select>
                   </div>
                   <div class="item item-4" fxFlex="30%" fxFlexOrder="4">
                     <md-select
+                      class="font"
                       placeholder="Profesional"
                       [(ngModel)]="selectedProfesional"
                       name="profesional">
                       <md-option
+                        class="font"
                         *ngFor="let profesional of profesionales"
                         [value]="profesional.value">
                         {{profesional.viewSelect}}
@@ -97,14 +112,14 @@
             </div>
           </div>
           <div class="item item-2" fxFlex="10%" fxFlexOrder="2">
-            <button md-raised-button>Buscar</button>
+            <button class="font1" md-raised-button>Buscar</button>
           </div>
         </div>
       </md-card>
     </form>
     <md-card-content>
       <md-card style="background-color:rgba(176,224,230,0.2);">
-        <md-card-title>RESULTADOS</md-card-title>
+        <md-card-title class="font">Resultados</md-card-title>
         <app-data-table *ngIf=!active [start]=defaultDateStart [end]=defaultDateEnd>
           Loading data-table...
         </app-data-table>

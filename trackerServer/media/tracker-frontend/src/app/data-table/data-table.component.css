@@ -63,3 +63,12 @@
   max-width: 360px;
   text-align: center;
 }
+
+h3 {
+  font-family: 'Open Sans Condensed', serif;
+  font-size:17px
+}
+.font {
+   font-family: 'Open Sans Condensed', serif;
+   font-size: 15px;
+}

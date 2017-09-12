@@ -7,44 +7,54 @@
     <!-- Number Column -->
 
     <ng-container cdkColumnDef="foto">
-      <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>
+      <md-header-cell *cdkHeaderCellDef>
+        <h3>Foto</h3>
+      </md-header-cell>
       <md-cell *cdkCellDef="let row">
-        <a
-          (click)="
-          gotoDetail(row.foto, row.lat, row.lng, row.note, row.obra,row.st,row.folio,row.profesional, row.phone)"><img [src]=row.foto|dataTableDetail id="imagen_" border="2"></a>
+        <a (click)="
+          gotoDetail(row)"><img [src]=row.foto|dataTableDetail id="imagen_" border="2"></a>
       </md-cell>
     </ng-container>
 
     <!-- Title Column -->
     <ng-container cdkColumnDef="obra">
-      <md-header-cell *cdkHeaderCellDef>Obra</md-header-cell>
-      <md-cell *cdkCellDef="let row">{{ row.obra }}</md-cell>
+      <md-header-cell *cdkHeaderCellDef>
+        <h3>Obra</h3>
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row" class="font">{{ row.obra }}</md-cell>
     </ng-container>
 
     <!-- State Column -->
     <ng-container cdkColumnDef="st">
-      <md-header-cell *cdkHeaderCellDef>ST</md-header-cell>
-      <md-cell *cdkCellDef="let row">{{ row.st }}</md-cell>
+      <md-header-cell *cdkHeaderCellDef>
+        <h3>ST</h3>
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row" class="font">{{ row.st }}</md-cell>
     </ng-container>
 
     <!-- State Column -->
     <ng-container cdkColumnDef="folio">
-      <md-header-cell *cdkHeaderCellDef>Folio</md-header-cell>
-      <md-cell *cdkCellDef="let row">{{ row.folio }}</md-cell>
+      <md-header-cell *cdkHeaderCellDef>
+        <h3>Folio</h3>
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row" class="font">{{ row.folio }}</md-cell>
     </ng-container>
 
     <!-- State Column -->
     <ng-container cdkColumnDef="profesional">
-      <md-header-cell *cdkHeaderCellDef>Porfesional</md-header-cell>
-      <md-cell *cdkCellDef="let row">{{ row.profesional }}</md-cell>
+      <md-header-cell *cdkHeaderCellDef>
+        <h3>Profesional</h3>
+      </md-header-cell>
+      <md-cell *cdkCellDef="let row" class="font">{{ row.profesional }}</md-cell>
     </ng-container>
 
     <!-- Created Column -->
     <ng-container cdkColumnDef="date">
       <md-header-cell *cdkHeaderCellDef>
-        Fecha
+        <h3>
+          Fecha y Hora de Captura</h3>
       </md-header-cell>
-      <md-cell *cdkCellDef="let row">{{row.date | date:'dd/MM/yyyy - hh:mm:ss'}}</md-cell>
+      <md-cell *cdkCellDef="let row" class="font">{{row.date | date:'dd/MM/yyyy - HH:mm:ss'}}</md-cell>
     </ng-container>
 
     <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
