@@ -61,7 +61,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-spacer {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n}\n\n.title {\n  font-family: Arial;\n  font-size: 40px;\n  margin:0px;\n}\n\n.tool {\n  color:white;\n  text-decoration: none !important;\n  font-size:45px;\n  padding-right: 20px;\n}\n.tool:focus {\n  color:lightblue;\n}\n\n#box-container {\n  background-color: lightblue;\n  padding: 5% 5% 5% 5%;\n  border-radius: 5px 5px 5px 5px;\n}\n", ""]);
+exports.push([module.i, ".example-spacer {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n}\n\n.title {\n  font-family: 'Open Sans Condensed', serif;\n  font-size: 40px;\n  margin:0px;\n}\n\n.tool {\n  color:white;\n  text-decoration: none !important;\n  font-size:45px;\n  padding-right: 20px;\n}\n.tool:focus {\n  color:lightblue;\n}\n\n#box-container {\n  background-color: lightblue;\n  padding: 5% 5% 5% 5%;\n  border-radius: 5px 5px 5px 5px;\n}\n\nh1 {\n  font-family: 'Open Sans Condensed', serif;\n}\n", ""]);
 
 // exports
 
@@ -74,7 +74,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<md-toolbar color=\"primary\">\n  <h1>\n    <a [routerLink]=\"['/home']\" routerLinkActive=\"active\" class=\"tool\">\n      <md-icon\n        class=\"material-icons\"\n        style=\"font-size:40px; padding-right:20px;margin: -2px 3px 0 0;float: left;\">\n        home\n      </md-icon>\n      {{title}}\n    </a>\n  </h1>\n  <span class=\"example-spacer\"></span>\n</md-toolbar>\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<md-toolbar color=\"primary\">\n  <h1 class=\"title\">\n    <a [routerLink]=\"['/home']\" routerLinkActive=\"active\" class=\"tool\">\n      <md-icon\n        class=\"material-icons\"\n        style=\"font-size:42px; padding-right:20px;margin: -2px 3px 0 0;float: left;\">\n        home\n      </md-icon>\n      {{title}}\n    </a>\n  </h1>\n  <span class=\"example-spacer\"></span>\n</md-toolbar>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -93,7 +93,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'tracker web!';
+        this.title = 'Tracker Web';
     }
     return AppComponent;
 }());
@@ -228,7 +228,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".font {\n  font-family: 'Open Sans Condensed', serif;\n}\n.font1 {\n  font-family: 'Open Sans Condensed', serif;\n  font-size: 20px;\n}\n", ""]);
 
 // exports
 
@@ -241,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div layout=\"row\" layout-margin layout-wrap layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title>BUSCADOR DE IMÁGENES\n    </md-card-title>\n    <md-card-subtitle>FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"start center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container>\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select placeholder=\"Obra\" [(ngModel)]=\"selectedObra\" name=\"obra\">\n                      <md-option *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select placeholder=\"Folio\" [(ngModel)]=\"selectedFolio\" name=\"folio\">\n                      <md-option *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n\n    <md-card-content>\n      <md-card style=\"background-color:rgba(176,224,230,0.2);\">\n        <md-card-title>RESULTADOS</md-card-title>\n        <app-data-table *ngIf=!active [start]=defaultDateStart [end]=defaultDateEnd>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=start\n          [end]=end\n          [obra]=obra\n          [st]=st\n          [folio]=folio\n          [profesional]=profesional>\n          Loading data-table...\n        </app-data-table>\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
+module.exports = "<div\n  class=\"font\"\n  layout=\"row\"\n  layout-margin\n  layout-wrap\n  layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title class=\"font\">Buscador de Imágenes\n    </md-card-title>\n    <md-card-subtitle class=\"font\">FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"start center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha Inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha Final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Obra\"\n                      [(ngModel)]=\"selectedObra\"\n                      name=\"obra\">\n                      <md-option class=\"font\" *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select class=\"font\" placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option class=\"font\" *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Folio\"\n                      [(ngModel)]=\"selectedFolio\"\n                      name=\"folio\">\n                      <md-option class=\"font\" *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        class=\"font\"\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button class=\"font1\" md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n    <md-card-content>\n      <md-card style=\"background-color:rgba(176,224,230,0.2);\">\n        <md-card-title class=\"font\">Resultados</md-card-title>\n        <app-data-table *ngIf=!active [start]=defaultDateStart [end]=defaultDateEnd>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=start\n          [end]=end\n          [obra]=obra\n          [st]=st\n          [folio]=folio\n          [profesional]=profesional>\n          Loading data-table...\n        </app-data-table>\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
 
 /***/ }),
 
@@ -267,12 +267,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DashboardComponent = (function () {
-    function DashboardComponent(dateAdapter, selectionService, route, r) {
+    function DashboardComponent(dateAdapter, selectionService, route, r, _compiler) {
+        //ClearCache
         this.dateAdapter = dateAdapter;
         this.selectionService = selectionService;
         this.route = route;
         this.r = r;
+        this._compiler = _compiler;
         this.minDate = new Date(2000, 0, 1);
         this.maxDate = new Date(Date.now());
         dateAdapter.setLocale('nl'); //DD-MM-YYYY
@@ -284,8 +287,6 @@ var DashboardComponent = (function () {
         this.defaultDateStart.setDate(this.defaultDateStart.getDate() - 1);
         this.defaultDateStart = this.localISOTime(this.defaultDateStart);
         this.defaultDateEnd = this.localISOTime(this.defaultDateEnd);
-        console.log("init ", this.defaultDateStart);
-        console.log("end ", this.defaultDateEnd);
         //console.log(this.route.snapshot.params["init"]);
         /*this.route.params.subscribe(params => {
           if (!this.deepEquals(params, {}))
@@ -293,6 +294,7 @@ var DashboardComponent = (function () {
         });*/
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        this._compiler.clearCache();
         this.getDataFilters();
     };
     DashboardComponent.prototype.assignData = function (params) {
@@ -344,18 +346,6 @@ var DashboardComponent = (function () {
             alert("Las fechas no tienen coherencia.");
             return;
         }
-        if (f.value["obra"] == null) {
-            console.log("Obra no seleccionada");
-        }
-        if (f.value["st"] == null) {
-            console.log("ST no seleccionada");
-        }
-        if (f.value["folio"] == null) {
-            console.log("Folio no seleccionado");
-        }
-        if (f.value["profesional"] == null) {
-            console.log("Profesional no seleccionado");
-        }
         if (this.ANDDates(f.value["init"], f.value["init"])) {
             f.value["end"].setDate(f.value["end"].getDate() + 1);
             console.log(f.value["end"]);
@@ -374,7 +364,6 @@ var DashboardComponent = (function () {
         this.profesional = f.value["profesional"];
         this.active = true;
         //this.r.navigate['/home'];
-        console.log("Form values -> ", f.value);
     };
     DashboardComponent.prototype.deepEquals = function (x, y) {
         if (x === y) {
@@ -446,10 +435,10 @@ DashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */]) === "function" && _e || Object])
 ], DashboardComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=dashboard.component.js.map
 
 /***/ }),
@@ -462,7 +451,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "button {\n  margin-top: 2%;\n  font-family: Arial;\n  font-size: 100%;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  margin-left: 10px;\n  margin-bottom: 1%;\n  border-radius: 4px;\n  cursor: pointer; cursor: hand;\n}\nbutton:hover {\n  background-color: #cfd8dc;\n}\nbutton:disabled {\n  background-color: #eee;\n  color: #ccc;\n  cursor: auto;\n}\n\nagm-map {\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  height: 100%;\n  width: 100%;\n}\n#map {\n        height: 100%;\n}\n", ""]);
+exports.push([module.i, "button {\n  margin-top: 1%;\n  font-size: 120%;\n  background-color: #E0F2F7;\n  border: none;\n  padding: 5px 10px;\n  margin-left: 10px;\n  font-family: 'Open Sans Condensed', serif;\n  margin-bottom: 1%;\n  border-radius: 4px;\n  cursor: pointer; cursor: hand;\n}\nbutton:hover {\n  background-color: #cfd8dc;\n}\nbutton:disabled {\n  background-color: #eee;\n  color: #ccc;\n  cursor: auto;\n}\n\nagm-map {\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  height: 100%;\n  width: 100%;\n}\n#map {\n    height: 100%;\n}\n\nh4,p,.font {\n  font-family: 'Open Sans Condensed', serif;\n\n}\n", ""]);
 
 // exports
 
@@ -475,7 +464,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/data-table-detail/data-table-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"column\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"10px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"100%\">\n    <button (click)=\"goBack()\">Volver</button>\n    <md-card>\n      <md-card-content>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlexOffset=\"10%\" fxFlex=\"30%\" fxFlexOrder=\"1\">\n            <md-list>\n              <md-card-title>Información</md-card-title>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Obra</h4>\n                <p md-line>\n                  {{obra}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>ST</h4>\n                <p md-line>\n                  {{st}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Folio</h4>\n                <p md-line>\n                  {{folio}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Profesional</h4>\n                <p md-line>\n                  {{profesional}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Comentarios</h4>\n                <p md-line>\n                  {{note}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Telefono</h4>\n                <p md-line>\n                  {{phone}}\n                </p>\n              </md-list-item>\n            </md-list>\n          </div>\n          <div class=\"item item-3\" fxFlex=\"5%\" fxFlexOrder=\"2\"></div>\n          <div class=\"item item-2\" fxFlex=\"55%\" fxFlexOrder=\"3\">\n            <md-card-title>Ubicación</md-card-title>\n            <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"16\">\n              <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n            </agm-map>\n          </div>\n        </div>\n      </md-card-content>\n\n      <md-card-content style=\"padding-top:3%\">\n        <md-card>\n          <md-card-title>Fotografía</md-card-title>\n          <div\n            fxLayout\n            fxLayoutAlign=\"center center\"\n            style=\"background-color:rgba(203,224,253,0.01);max-width:600px;max-height:500px\">\n            <img\n              style=\"float:center;width:100%; height:100%; max-height:80%; max-width:80%\"\n              [src]=foto|dataTableDetail/>\n          </div>\n        </md-card>\n      </md-card-content>\n    </md-card>\n  </div>\n</div>\n"
+module.exports = "<div\n  class=\"container\"\n  fxLayout\n  fxLayout.xs=\"column\"\n  fxLayoutAlign=\"center\"\n  fxLayoutGap=\"10px\"\n  fxLayoutGap.xs=\"0\">\n  <div class=\"item item-1\" fxFlex=\"100%\">\n    <button (click)=\"goBack()\" class=\"font1\">Volver</button>\n    <md-card>\n      <md-card-content>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlexOffset=\"10%\" fxFlex=\"30%\" fxFlexOrder=\"1\">\n            <md-list>\n              <md-card-title class=\"font\">Información</md-card-title>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Obra</h4>\n                <p md-line>\n                  {{obra}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>ST</h4>\n                <p md-line>\n                  {{st}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Folio</h4>\n                <p md-line>\n                  {{folio}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Profesional</h4>\n                <p md-line>\n                  {{profesional}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Comentarios</h4>\n                <p md-line>\n                  {{note}}\n                </p>\n              </md-list-item>\n              <md-divider></md-divider>\n              <md-list-item>\n                <md-icon md-list-icon>label</md-icon>\n                <h4 md-line>Teléfono que envió</h4>\n                <p md-line>\n                  {{phone}}\n                </p>\n              </md-list-item>\n            </md-list>\n          </div>\n          <div class=\"item item-3\" fxFlex=\"5%\" fxFlexOrder=\"2\"></div>\n          <div class=\"item item-2\" fxFlex=\"55%\" fxFlexOrder=\"3\">\n            <md-card-title class=\"font\">Ubicación</md-card-title>\n            <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"16\">\n              <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n            </agm-map>\n          </div>\n        </div>\n      </md-card-content>\n\n      <md-card-content style=\"padding-top:3%\">\n        <md-card>\n          <md-card-title class=\"font\">Fotografía</md-card-title>\n          <div\n            fxLayout\n            fxLayoutAlign=\"center center\"\n            style=\"background-color:rgba(203,224,253,0.01);max-width:600px;max-height:500px\">\n            <img\n              style=\"float:center;width:100%; height:100%; max-height:80%; max-width:80%\"\n              [src]=foto|dataTableDetail/>\n          </div>\n        </md-card>\n      </md-card-content>\n    </md-card>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -557,7 +546,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  position: relative;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n#imagen_:hover {\n  border-color: lightgreen;\n}\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  position: relative;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n#imagen_{\n  max-height:120px;\n  max-width:120px;\n}\n\n\n#imagen_:hover {\n  border-color: lightgreen;\n}\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n\nh3 {\n  font-family: 'Open Sans Condensed', serif;\n  font-size:17px\n}\n.font {\n   font-family: 'Open Sans Condensed', serif;\n   font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -570,7 +559,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/data-table/data-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\n\n  <md-table #table [dataSource]=\"dataSource\" class=\"example-table\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Number Column -->\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>Foto</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n        {{row.foto}}\n        phone:{{row.phone}}\n        media:{{ MEDIA_URL }}\n\n        <a\n          (click)=\"\n          gotoDetail(row.foto, row.lat, row.lng, row.note, row.obra,row.st,row.folio,row.profesional, row.phone)\"><img\n          src=\"{{row.foto}}\"\n          id=\"imagen_\"\n          style=\"max-height:120px; max-width:120px\"\n          border=\"2\"></a>\n      </md-cell>\n    </ng-container>\n\n    <!-- Title Column -->\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>Obra</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>ST</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>Folio</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>Porfesional</md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef>\n        Fecha\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">{{row.date | date:'dd/MM/yyyy - hh:mm:ss'}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n</div>\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <md-table #table [dataSource]=\"dataSource\" class=\"example-table\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Number Column -->\n\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Foto</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n        <a (click)=\"\n          gotoDetail(row)\"><img [src]=row.foto|dataTableDetail id=\"imagen_\" border=\"2\"></a>\n      </md-cell>\n    </ng-container>\n\n    <!-- Title Column -->\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Obra</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>ST</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Folio</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Profesional</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>\n          Fecha y Hora de Captura</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{row.date | date:'dd/MM/yyyy - HH:mm:ss'}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n</div>\n"
 
 /***/ }),
 
@@ -668,16 +657,16 @@ var DataTableComponent = (function () {
         //  this.f.nativeElement, 'keyup');
         //
     };
-    DataTableComponent.prototype.gotoDetail = function (foto, lat, lng, note, obra, st, folio, profesional, phone) {
-        this.dataDetailService.foto = foto;
-        this.dataDetailService.obra = obra;
-        this.dataDetailService.st = st;
-        this.dataDetailService.folio = folio;
-        this.dataDetailService.profesional = profesional;
-        this.dataDetailService.note = note;
-        this.dataDetailService.lat = lat;
-        this.dataDetailService.lng = lng;
-        this.dataDetailService.phone = phone;
+    DataTableComponent.prototype.gotoDetail = function (row) {
+        this.dataDetailService.foto = row.foto;
+        this.dataDetailService.obra = row.obra;
+        this.dataDetailService.st = row.st;
+        this.dataDetailService.folio = row.folio;
+        this.dataDetailService.profesional = row.profesional;
+        this.dataDetailService.note = row.note;
+        this.dataDetailService.lat = row.lat;
+        this.dataDetailService.lng = row.lng;
+        this.dataDetailService.phone = row.phone;
         this.router.navigate(['/detail']);
     };
     return DataTableComponent;
@@ -982,7 +971,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DataTableService = (function () {
     function DataTableService(http) {
         this.http = http;
-        this.Url = 'http://127.0.0.1:8000'; // URL to web api
+        this.Url = 'http://54.175.253.151'; // URL to web api
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
     }
     DataTableService.prototype.printRequest = function (url, headers, options) {
@@ -995,7 +984,6 @@ var DataTableService = (function () {
     };
     DataTableService.prototype.getData = function (start, end, obra, st, folio, profesional) {
         var url = this.Url + "/server/datatable/";
-        console.log("url -> ", url);
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
             headers: this.headers,
         });
@@ -1042,11 +1030,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var SelectionService = (function () {
     function SelectionService(http) {
         this.http = http;
-        this.Url = 'http://127.0.0.1:8000'; // URL to web api
+        this.Url = 'http://54.175.253.151'; // URL to web api
     }
     SelectionService.prototype.getData = function () {
         var url = this.Url + "/server/datafilter/";
-        console.log("url -> ", url);
         return this.http
             .get(url)
             .toPromise()
@@ -1069,20 +1056,15 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../src/environments/environment.ts":
+/***/ "../../../../../src/environments/environment.prod.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: false
+    production: true
 };
-//# sourceMappingURL=environment.js.map
+//# sourceMappingURL=environment.prod.js.map
 
 /***/ }),
 
@@ -1094,12 +1076,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__ = __webpack_require__("../../../../../src/environments/environment.prod.ts");
 
 
 
 
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__["a" /* environment */].production) {
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
