@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { DateAdapter } from '@angular/material';
-import {MdSelectChange} from '@angular/material';
-import {SelectionService} from '../shared/selection.service';
-import {SelectionData} from '../shared/selection-data';
-import {ActivatedRoute, Router } from '@angular/router';
+import { MdSelectChange } from '@angular/material';
+import { SelectionService } from '../shared/selection.service';
+import { SelectionData } from '../shared/selection-data';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Compiler } from '@angular/core';
 
 @Component({
@@ -14,8 +14,8 @@ import { Compiler } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   active: boolean;
-  @Input() defaultDateStart: Date;
-  @Input() defaultDateEnd: Date;
+  @Input() defaultDateStart: string;
+  @Input() defaultDateEnd: string;
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(Date.now());
   selectionData: SelectionData;
@@ -35,6 +35,9 @@ export class DashboardComponent implements OnInit {
 
     dateAdapter.setLocale('nl'); //DD-MM-YYYY
     this.active = false;
+    //If you want to use the last 24 hours to search,
+    // uncomment these lines
+    /*
     let date = new Date(Date.now());
     let date_end = date;
     this.defaultDateEnd = date_end;
@@ -42,6 +45,10 @@ export class DashboardComponent implements OnInit {
     this.defaultDateStart.setDate(this.defaultDateStart.getDate() - 1);
     this.defaultDateStart = this.localISOTime(this.defaultDateStart);
     this.defaultDateEnd = this.localISOTime(this.defaultDateEnd);
+    */
+    this.defaultDateEnd = "";
+    this.defaultDateStart = "";
+
     //console.log(this.route.snapshot.params["init"]);
     /*this.route.params.subscribe(params => {
       if (!this.deepEquals(params, {}))
