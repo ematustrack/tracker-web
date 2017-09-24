@@ -1,26 +1,21 @@
-import {Component, ViewChild, OnChanges, Input, OnInit, ElementRef, ChangeDetectorRef, AfterViewInit} from '@angular/core';
-import {DataSource} from '@angular/cdk/table';
-import {MdPaginator, MdSort} from '@angular/material';
-import {Observable} from 'rxjs/Observable';
-import {Http, Response} from '@angular/http';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import { DatePipe } from '@angular/common';
-import {DataTableDetailService} from '../shared/data-table-detail.service';
-import {DataTableDetailPipe} from '../shared/data-table-detail.pipe';
-
-import 'rxjs/add/operator/catch';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
+import { DataSource } from '@angular/cdk/table';
+import { MdPaginator, MdSort, SelectionModel } from '@angular/material';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 
 import { DataTableService } from '../shared/data-table.service';
-import { DataTable, DataInTable } from '../shared/data-table';
-import { Router }   from '@angular/router';
+import { DataTable } from '../shared/data-table';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { DataTableDetailService } from '../shared/data-table-detail.service';
+import { DataTableDetailPipe } from '../shared/data-table-detail.pipe';
 
 
 /**
@@ -31,41 +26,37 @@ import { Router }   from '@angular/router';
   styleUrls: ['data-table.component.css'],
   templateUrl: 'data-table.component.html',
 })
-export class DataTableComponent implements OnChanges, AfterViewInit {
+export class DataTableComponent {
   displayedColumns = ['foto', 'obra', 'st', 'folio', 'profesional', 'date'];
   exampleDatabase: ExampleDatabase | null;
+  selection = new SelectionModel<string>(true, []);
   dataSource: ExampleDataSource | null;
-
+  photos: DataTable[];
   @Input() start: string;
   @Input() end: string;
   @Input() obra: string;
   @Input() st: string;
   @Input() folio: string;
   @Input() profesional: string;
-
   @ViewChild(MdPaginator) paginator: MdPaginator;
+  @ViewChild(MdSort) sort: MdSort;
 
   constructor(
     private router: Router,
     private datatableService: DataTableService,
-    private changeDetector: ChangeDetectorRef,
     private dataDetailService: DataTableDetailService) {
   }
 
-  ngOnChanges() {
-    this.exampleDatabase = new ExampleDatabase(this.datatableService);
+  ngOnInit() {
+    this.exampleDatabase = new ExampleDatabase(this.datatableService, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
     //this.getDataTable(this.start, this.end);
-    this.dataSource = new ExampleDataSource(this.exampleDatabase!, this.paginator, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
-
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
   }
 
-  ngAfterViewInit() {
-
-    //
-    // TODO: Remove this as it is a workaround to make the table visible when the page got reloaded
-    //var eventObservable = Observable.fromEvent(
-    //  this.f.nativeElement, 'keyup');
-    //
+  ngOnChanges() {
+    this.exampleDatabase = new ExampleDatabase(this.datatableService, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
+    //this.getDataTable(this.start, this.end);
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
   }
 
   gotoDetail(row: any): void {
@@ -80,16 +71,18 @@ export class DataTableComponent implements OnChanges, AfterViewInit {
     this.dataDetailService.phone = row.phone;
     this.router.navigate(['/detail']);
   }
+
 }
 
 
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
-  //getDataTable call dataTableService with two dates
+  /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<DataTable[]> = new BehaviorSubject<DataTable[]>([]);
   get data(): DataTable[] { return this.dataChange.value; }
+  photos: DataTable[];
 
-  getDataTable(start: string, end: string, obra: string, st: string, folio: string, profesional: string): Observable<DataInTable> {
+  constructor(private datatableService: DataTableService, start: string, end: string, obra: string, st: string, folio: string, profesional: string) {
     if (!start)
       start = "";
     if (!end)
@@ -102,14 +95,22 @@ export class ExampleDatabase {
       folio = "";
     if (!profesional)
       profesional = "";
-    return this.datatableService.getData(start, end, obra, st, folio, profesional)
-      .map(response => {
-        this.dataChange.next(response.json());
-        return response.json() as DataInTable;
-      });
+
+    this.getDataTable(start, end, obra, st, folio, profesional);
   }
 
-  constructor(private datatableService: DataTableService) { }
+  //getDataTable call dataTableService with two dates
+  getDataTable(start: string, end: string, obra: string, st: string, folio: string, profesional: string): void {
+    this.datatableService.getData(start, end, obra, st, folio, profesional).then(photos => {
+      //this.dataChange = photos;
+      for (let i = 0; i < photos.length; i++) {
+        const copiedData = this.data.slice();
+        copiedData.push(photos[i]);
+        this.dataChange.next(copiedData);
+      }
+    })
+
+  }
 }
 
 /**
@@ -119,56 +120,73 @@ export class ExampleDatabase {
  * the underlying data. Instead, it only needs to take the data and send the table exactly what
  * should be rendered.
  */
-export class ExampleDataSource extends DataSource<DataTable> {
-  resultsLength = 0;
-  isLoadingResults: boolean = false;
-  isRateLimitReached: boolean = false;
+export class ExampleDataSource extends DataSource<any> {
+  _filterChange = new BehaviorSubject('');
+  get filter(): string { return this._filterChange.value; }
+  set filter(filter: string) { this._filterChange.next(filter); }
+
+
+  filteredData: DataTable[] = [];
+  renderedData: DataTable[] = [];
 
   constructor(private _exampleDatabase: ExampleDatabase,
     private _paginator: MdPaginator,
-    private start: string,
-    private end: string,
-    private obra: string,
-    private st: string,
-    private folio: string,
-    private profesional: string) {
+    private _sort: MdSort) {
     super();
+    // Reset to the first page when the user changes the filter.
+    this._filterChange.subscribe(() => this._paginator.pageIndex = 0);
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<DataTable[]> {
-
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
+      this._exampleDatabase.dataChange,
+      this._sort.mdSortChange,
+      this._filterChange,
+      this._paginator.page,
     ];
 
-    //this._sort.mdSortChange.subscribe(() => this._paginator.pageIndex = 0);
-    return Observable.merge(...displayDataChanges)
-      .startWith(null)
-      .switchMap(() => {
-        this.isLoadingResults = true;
-        return this._exampleDatabase.getDataTable(
-          this.start, this.end, this.obra, this.st, this.folio, this.profesional);
-      })
-      .map(data => {
-
-        // Flip flag to show that loading has finished.
-        this.isLoadingResults = false;
-        this.isRateLimitReached = false;
-        //
-        this.resultsLength = data["data"].length;
-        //
-        return data["data"];//.getSortedData();
-      })
-      .catch(() => {
-        this.isLoadingResults = false;
-        // Catch if the GitHub API has reached its rate limit. Return empty data.
-        this.isRateLimitReached = true;
-        return Observable.of(null);
+    return Observable.merge(...displayDataChanges).map(() => {
+      // Filter data
+      this.filteredData = this._exampleDatabase.data.slice().filter((item: DataTable) => {
+        let searchStr = (item.obra).toLowerCase();
+        return searchStr.indexOf(this.filter.toLowerCase()) != -1;
       });
+
+      // Sort filtered data
+      const sortedData = this.sortData(this.filteredData.slice());
+
+      // Grab the page's slice of the filtered sorted data.
+      const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
+      this.renderedData = sortedData.splice(startIndex, this._paginator.pageSize);
+      return this.renderedData;
+    });
   }
 
   disconnect() { }
 
+  /** Returns a sorted copy of the database data. */
+  sortData(data: DataTable[]): DataTable[] {
+    if (!this._sort.active || this._sort.direction == '') { return data; }
 
+    return data.sort((a, b) => {
+      let propertyA: number | string | Date = '';
+      let propertyB: number | string | Date = '';
+
+      switch (this._sort.active) {
+        case 'foto': [propertyA, propertyB] = [a.foto, b.foto]; break;
+        case 'obra': [propertyA, propertyB] = [a.obra, b.obra]; break;
+        case 'st': [propertyA, propertyB] = [a.st, b.st]; break;
+        case 'folio': [propertyA, propertyB] = [a.folio, b.folio]; break;
+        case 'profesional': [propertyA, propertyB] = [a.profesional, b.profesional]; break;
+        case 'date': [propertyA, propertyB] = [a.date, b.date]; break;
+      }
+
+      let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
+      let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
+
+      return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
+    });
+  }
 }

@@ -117,8 +117,9 @@
         </div>
       </md-card>
     </form>
-    <md-card-content>
-      <md-card style="background-color:rgba(176,224,230,0.2);">
+    <md-card-content style="overflow:auto">
+      <md-card
+        style="background-color:rgba(176,224,230,0.2);margin:30px 30px;padding:30px 30px;overflow: auto;">
         <md-card-title class="font">Resultados</md-card-title>
         <app-data-table [start]=defaultDateStart [end]=defaultDateEnd *ngIf=!active>
           Loading data-table...
@@ -135,6 +136,6 @@
         </app-data-table>
       </md-card>
     </md-card-content>
-    <md-card-footer style="text-align:center">© 2017</md-card-footer>
+    <md-card-footer style="text-align:center;margin-bottom:1%">© 2017</md-card-footer>
   </md-card>
 </div>

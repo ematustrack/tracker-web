@@ -62,7 +62,6 @@ export class DashboardComponent implements OnInit {
 
   }
   assignData(params) {
-    console.log("assignData");
     this.defaultDateStart = this.localISOTime(params["init"]);
     this.defaultDateEnd = this.localISOTime(params["end"]);
 

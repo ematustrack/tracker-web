@@ -1,11 +1,16 @@
 <div class="example-container mat-elevation-z8">
-  <md-table #table [dataSource]="dataSource" class="example-table">
+
+  <md-table
+    #table
+    [dataSource]="dataSource"
+    mdSort
+    mdSortActive="date"
+    mdSortDirection="des">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Number Column -->
-
+    <!-- Foto Column -->
     <ng-container cdkColumnDef="foto">
       <md-header-cell *cdkHeaderCellDef>
         <h3>Foto</h3>
@@ -16,7 +21,6 @@
       </md-cell>
     </ng-container>
 
-    <!-- Title Column -->
     <ng-container cdkColumnDef="obra">
       <md-header-cell *cdkHeaderCellDef>
         <h3>Obra</h3>
@@ -61,4 +65,16 @@
     <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
   </md-table>
 
+  <div
+    class="example-no-results"
+    [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No hay coincidencias con su búsqueda.
+  </div>
+
+  <md-paginator
+    #paginator
+    [length]="dataSource.filteredData.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50, 100]"></md-paginator>
 </div>
