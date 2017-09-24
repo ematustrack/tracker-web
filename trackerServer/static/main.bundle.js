@@ -241,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  class=\"font\"\n  layout=\"row\"\n  layout-margin\n  layout-wrap\n  layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title class=\"font\">Buscador de Imágenes\n    </md-card-title>\n    <md-card-subtitle class=\"font\">FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"start center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha Inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha Final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Obra\"\n                      [(ngModel)]=\"selectedObra\"\n                      name=\"obra\">\n                      <md-option class=\"font\" *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select class=\"font\" placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option class=\"font\" *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Folio\"\n                      [(ngModel)]=\"selectedFolio\"\n                      name=\"folio\">\n                      <md-option class=\"font\" *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        class=\"font\"\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button class=\"font1\" md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n    <md-card-content>\n      <md-card style=\"background-color:rgba(176,224,230,0.2);\">\n        <md-card-title class=\"font\">Resultados</md-card-title>\n        <app-data-table [start]=defaultDateStart [end]=defaultDateEnd *ngIf=!active>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=start\n          [end]=end\n          [obra]=obra\n          [st]=st\n          [folio]=folio\n          [profesional]=profesional>\n          Loading data-table...\n        </app-data-table>\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
+module.exports = "<div\n  class=\"font\"\n  layout=\"row\"\n  layout-margin\n  layout-wrap\n  layout-align=\"center center\">\n  <md-card flex=\"100\" class=\"md-card-dashboard\">\n    <md-card-title class=\"font\">Buscador de Imágenes\n    </md-card-title>\n    <md-card-subtitle class=\"font\">FILTROS</md-card-subtitle >\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" novalidate>\n      <md-card>\n        <div\n          class=\"container\"\n          fxLayout\n          fxLayout.xs=\"column\"\n          fxLayoutAlign=\"start center\"\n          fxLayoutGap=\"10px\"\n          fxLayoutGap.xs=\"0\">\n          <div class=\"item item-1\" fxFlex=\"90%\" fxFlexOrder=\"1\">\n            <div\n              class=\"container\"\n              fxLayout\n              fxLayout.xs=\"row\"\n              fxLayoutAlign=\"start center\"\n              fxLayoutGap=\"10px\"\n              fxLayoutGap.xs=\"0\">\n\n              <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerInit\"\n                    placeholder=\"Fecha Inicial\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    [value]=\"10-2-2017\"\n                    name=\"init\"\n                    #init=\"ngModel\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerInit\"></button>\n                </md-input-container>\n                <md-datepicker #pickerInit></md-datepicker>\n              </div>\n              <div class=\"item item-2\" fxFlex=\"23%\" fxFlexOrder=\"2\">\n                <md-input-container class=\"font\">\n                  <input\n                    mdInput\n                    [mdDatepicker]=\"pickerEnd\"\n                    placeholder=\"Fecha Final\"\n                    [min]=\"minDate\"\n                    [max]=\"maxDate\"\n                    name=\"end\"\n                    ngModel>\n                  <button mdSuffix [mdDatepickerToggle]=\"pickerEnd\"></button>\n                </md-input-container>\n                <md-datepicker #pickerEnd></md-datepicker>\n              </div>\n              <div class=\"item item-3\" fxFlex=\"62%\" fxFlexOrder=\"3\">\n                <div\n                  class=\"container\"\n                  fxLayout\n                  fxLayout.xs=\"row\"\n                  fxLayoutAlign=\"center\"\n                  fxLayoutGap=\"20px\"\n                  fxLayoutGap.xs=\"0\">\n                  <div class=\"item item-1\" fxFlex=\"20%\" fxFlexOrder=\"1\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Obra\"\n                      [(ngModel)]=\"selectedObra\"\n                      name=\"obra\">\n                      <md-option class=\"font\" *ngFor=\"let obra of obras\" [value]=\"obra.value\">\n                        {{obra.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-2\" fxFlex=\"30%\" fxFlexOrder=\"2\">\n                    <md-select class=\"font\" placeholder=\"ST\" [(ngModel)]=\"selectedST\" name=\"st\">\n                      <md-option class=\"font\" *ngFor=\"let st of sts\" [value]=\"st.value\">\n                        {{st.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-3\" fxFlex=\"30%\" fxFlexOrder=\"3\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Folio\"\n                      [(ngModel)]=\"selectedFolio\"\n                      name=\"folio\">\n                      <md-option class=\"font\" *ngFor=\"let folio of folios\" [value]=\"folio.value\">\n                        {{folio.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                  <div class=\"item item-4\" fxFlex=\"30%\" fxFlexOrder=\"4\">\n                    <md-select\n                      class=\"font\"\n                      placeholder=\"Profesional\"\n                      [(ngModel)]=\"selectedProfesional\"\n                      name=\"profesional\">\n                      <md-option\n                        class=\"font\"\n                        *ngFor=\"let profesional of profesionales\"\n                        [value]=\"profesional.value\">\n                        {{profesional.viewSelect}}\n                      </md-option>\n                    </md-select>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"item item-2\" fxFlex=\"10%\" fxFlexOrder=\"2\">\n            <button class=\"font1\" md-raised-button>Buscar</button>\n          </div>\n        </div>\n      </md-card>\n    </form>\n    <md-card-content style=\"overflow:auto\">\n      <md-card\n        style=\"background-color:rgba(176,224,230,0.2);margin:30px 30px;padding:30px 30px;overflow: auto;\">\n        <md-card-title class=\"font\">Resultados</md-card-title>\n        <app-data-table [start]=defaultDateStart [end]=defaultDateEnd *ngIf=!active>\n          Loading data-table...\n        </app-data-table>\n        <app-data-table\n          *ngIf=active\n          [start]=start\n          [end]=end\n          [obra]=obra\n          [st]=st\n          [folio]=folio\n          [profesional]=profesional>\n          Loading data-table...\n        </app-data-table>\n      </md-card>\n    </md-card-content>\n    <md-card-footer style=\"text-align:center;margin-bottom:1%\">© 2017</md-card-footer>\n  </md-card>\n</div>\n"
 
 /***/ }),
 
@@ -304,7 +304,6 @@ var DashboardComponent = (function () {
         this.getDataFilters();
     };
     DashboardComponent.prototype.assignData = function (params) {
-        console.log("assignData");
         this.defaultDateStart = this.localISOTime(params["init"]);
         this.defaultDateEnd = this.localISOTime(params["end"]);
     };
@@ -441,7 +440,7 @@ DashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["r" /* DateAdapter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["r" /* DateAdapter */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_selection_service__["a" /* SelectionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* Compiler */]) === "function" && _e || Object])
 ], DashboardComponent);
 
 var _a, _b, _c, _d, _e;
@@ -552,7 +551,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 500px;\n  min-width: 300px;\n  position: relative;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n#imagen_{\n  max-height:120px;\n  max-width:120px;\n}\n\n\n#imagen_:hover {\n  border-color: lightgreen;\n}\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n\nh3 {\n  font-family: 'Open Sans Condensed', serif;\n  font-size:17px\n}\n.font {\n   font-family: 'Open Sans Condensed', serif;\n   font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  min-width: 300px;\n}\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px;\n}\n#imagen_{\n  max-height:120px;\n  max-width:120px;\n}\n\n\n#imagen_:hover {\n  border-color: lightgreen;\n}\n.example-table {\n  overflow: auto;\n  min-height: 300px;\n}\n\n.mat-column-title {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n\n.mat-column-created {\n  max-width: 124px;\n}\n\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n\nh3 {\n  font-family: 'Open Sans Condensed', serif;\n  font-size:17px\n}\n.font {\n   font-family: 'Open Sans Condensed', serif;\n   font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -565,7 +564,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/data-table/data-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <md-table #table [dataSource]=\"dataSource\" class=\"example-table\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Number Column -->\n\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Foto</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n        <a (click)=\"\n          gotoDetail(row)\"><img [src]=row.foto|dataTableDetail id=\"imagen_\" border=\"2\"></a>\n      </md-cell>\n    </ng-container>\n\n    <!-- Title Column -->\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Obra</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>ST</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Folio</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Profesional</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>\n          Fecha y Hora de Captura</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{row.date | date:'dd/MM/yyyy - HH:mm:ss'}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n</div>\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n\n  <md-table\n    #table\n    [dataSource]=\"dataSource\"\n    mdSort\n    mdSortActive=\"date\"\n    mdSortDirection=\"des\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Foto Column -->\n    <ng-container cdkColumnDef=\"foto\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Foto</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\">\n        <a (click)=\"\n          gotoDetail(row)\"><img [src]=row.foto|dataTableDetail id=\"imagen_\" border=\"2\"></a>\n      </md-cell>\n    </ng-container>\n\n    <ng-container cdkColumnDef=\"obra\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Obra</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.obra }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"st\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>ST</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.st }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"folio\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Folio</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.folio }}</md-cell>\n    </ng-container>\n\n    <!-- State Column -->\n    <ng-container cdkColumnDef=\"profesional\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>Profesional</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{ row.profesional }}</md-cell>\n    </ng-container>\n\n    <!-- Created Column -->\n    <ng-container cdkColumnDef=\"date\">\n      <md-header-cell *cdkHeaderCellDef>\n        <h3>\n          Fecha y Hora de Captura</h3>\n      </md-header-cell>\n      <md-cell *cdkCellDef=\"let row\" class=\"font\">{{row.date | date:'dd/MM/yyyy - HH:mm:ss'}}</md-cell>\n    </ng-container>\n\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\n  </md-table>\n\n  <div\n    class=\"example-no-results\"\n    [style.display]=\"dataSource.renderedData.length == 0 ? '' : 'none'\">\n    No hay coincidencias con su búsqueda.\n  </div>\n\n  <md-paginator\n    #paginator\n    [length]=\"dataSource.filteredData.length\"\n    [pageIndex]=\"0\"\n    [pageSize]=\"10\"\n    [pageSizeOptions]=\"[10, 25, 50, 100]\"></md-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -576,31 +575,25 @@ module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <md-tabl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_cdk_table__ = __webpack_require__("../../../cdk/@angular/cdk/table.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_merge__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of__ = __webpack_require__("../../../../rxjs/add/observable/of.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_data_table_service__ = __webpack_require__("../../../../../src/app/shared/data-table.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_data_table_detail_service__ = __webpack_require__("../../../../../src/app/shared/data-table-detail.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableComponent; });
 /* unused harmony export ExampleDatabase */
 /* unused harmony export ExampleDataSource */
@@ -637,31 +630,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
 /**
  * @title Feature-rich data table
  */
 var DataTableComponent = (function () {
-    function DataTableComponent(router, datatableService, changeDetector, dataDetailService) {
+    function DataTableComponent(router, datatableService, dataDetailService) {
         this.router = router;
         this.datatableService = datatableService;
-        this.changeDetector = changeDetector;
         this.dataDetailService = dataDetailService;
         this.displayedColumns = ['foto', 'obra', 'st', 'folio', 'profesional', 'date'];
+        this.selection = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* SelectionModel */](true, []);
     }
-    DataTableComponent.prototype.ngOnChanges = function () {
-        this.exampleDatabase = new ExampleDatabase(this.datatableService);
+    DataTableComponent.prototype.ngOnInit = function () {
+        this.exampleDatabase = new ExampleDatabase(this.datatableService, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
         //this.getDataTable(this.start, this.end);
-        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
+        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
     };
-    DataTableComponent.prototype.ngAfterViewInit = function () {
-        //
-        // TODO: Remove this as it is a workaround to make the table visible when the page got reloaded
-        //var eventObservable = Observable.fromEvent(
-        //  this.f.nativeElement, 'keyup');
-        //
+    DataTableComponent.prototype.ngOnChanges = function () {
+        this.exampleDatabase = new ExampleDatabase(this.datatableService, this.start, this.end, this.obra, this.st, this.folio, this.profesional);
+        //this.getDataTable(this.start, this.end);
+        this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
     };
     DataTableComponent.prototype.gotoDetail = function (row) {
         this.dataDetailService.foto = row.foto;
@@ -702,32 +690,28 @@ __decorate([
     __metadata("design:type", String)
 ], DataTableComponent.prototype, "profesional", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */]),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdPaginator */]) === "function" && _a || Object)
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MdPaginator */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MdPaginator */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MdPaginator */]) === "function" && _a || Object)
 ], DataTableComponent.prototype, "paginator", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MdSort */]),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MdSort */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MdSort */]) === "function" && _b || Object)
+], DataTableComponent.prototype, "sort", void 0);
 DataTableComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-data-table',
         styles: [__webpack_require__("../../../../../src/app/data-table/data-table.component.css")],
         template: __webpack_require__("../../../../../src/app/data-table/data-table.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_16__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_16__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__shared_data_table_service__["a" /* DataTableService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_data_table_detail_service__["a" /* DataTableDetailService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_12__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_11__shared_data_table_service__["a" /* DataTableService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__shared_data_table_service__["a" /* DataTableService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_13__shared_data_table_detail_service__["a" /* DataTableDetailService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__shared_data_table_detail_service__["a" /* DataTableDetailService */]) === "function" && _e || Object])
 ], DataTableComponent);
 
 /** An example database that the data source uses to retrieve data for the table. */
 var ExampleDatabase = (function () {
-    function ExampleDatabase(datatableService) {
+    function ExampleDatabase(datatableService, start, end, obra, st, folio, profesional) {
         this.datatableService = datatableService;
-        //getDataTable call dataTableService with two dates
-        this.dataChange = new __WEBPACK_IMPORTED_MODULE_4_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
-    }
-    Object.defineProperty(ExampleDatabase.prototype, "data", {
-        get: function () { return this.dataChange.value; },
-        enumerable: true,
-        configurable: true
-    });
-    ExampleDatabase.prototype.getDataTable = function (start, end, obra, st, folio, profesional) {
-        var _this = this;
+        /** Stream that emits whenever the data has been modified. */
+        this.dataChange = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
         if (!start)
             start = "";
         if (!end)
@@ -740,10 +724,23 @@ var ExampleDatabase = (function () {
             folio = "";
         if (!profesional)
             profesional = "";
-        return this.datatableService.getData(start, end, obra, st, folio, profesional)
-            .map(function (response) {
-            _this.dataChange.next(response.json());
-            return response.json();
+        this.getDataTable(start, end, obra, st, folio, profesional);
+    }
+    Object.defineProperty(ExampleDatabase.prototype, "data", {
+        get: function () { return this.dataChange.value; },
+        enumerable: true,
+        configurable: true
+    });
+    //getDataTable call dataTableService with two dates
+    ExampleDatabase.prototype.getDataTable = function (start, end, obra, st, folio, profesional) {
+        var _this = this;
+        this.datatableService.getData(start, end, obra, st, folio, profesional).then(function (photos) {
+            //this.dataChange = photos;
+            for (var i = 0; i < photos.length; i++) {
+                var copiedData = _this.data.slice();
+                copiedData.push(photos[i]);
+                _this.dataChange.next(copiedData);
+            }
         });
     };
     return ExampleDatabase;
@@ -758,49 +755,84 @@ var ExampleDatabase = (function () {
  */
 var ExampleDataSource = (function (_super) {
     __extends(ExampleDataSource, _super);
-    function ExampleDataSource(_exampleDatabase, _paginator, start, end, obra, st, folio, profesional) {
+    function ExampleDataSource(_exampleDatabase, _paginator, _sort) {
         var _this = _super.call(this) || this;
         _this._exampleDatabase = _exampleDatabase;
         _this._paginator = _paginator;
-        _this.start = start;
-        _this.end = end;
-        _this.obra = obra;
-        _this.st = st;
-        _this.folio = folio;
-        _this.profesional = profesional;
-        _this.resultsLength = 0;
-        _this.isLoadingResults = false;
-        _this.isRateLimitReached = false;
+        _this._sort = _sort;
+        _this._filterChange = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["BehaviorSubject"]('');
+        _this.filteredData = [];
+        _this.renderedData = [];
+        // Reset to the first page when the user changes the filter.
+        _this._filterChange.subscribe(function () { return _this._paginator.pageIndex = 0; });
         return _this;
     }
+    Object.defineProperty(ExampleDataSource.prototype, "filter", {
+        get: function () { return this._filterChange.value; },
+        set: function (filter) { this._filterChange.next(filter); },
+        enumerable: true,
+        configurable: true
+    });
     /** Connect function called by the table to retrieve one stream containing the data to render. */
     ExampleDataSource.prototype.connect = function () {
         var _this = this;
         // Listen for any changes in the base data, sorting, filtering, or pagination
-        var displayDataChanges = [];
-        //this._sort.mdSortChange.subscribe(() => this._paginator.pageIndex = 0);
-        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].merge.apply(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"], displayDataChanges).startWith(null)
-            .switchMap(function () {
-            _this.isLoadingResults = true;
-            return _this._exampleDatabase.getDataTable(_this.start, _this.end, _this.obra, _this.st, _this.folio, _this.profesional);
-        })
-            .map(function (data) {
-            // Flip flag to show that loading has finished.
-            _this.isLoadingResults = false;
-            _this.isRateLimitReached = false;
-            //
-            _this.resultsLength = data["data"].length;
-            //
-            return data["data"]; //.getSortedData();
-        })
-            .catch(function () {
-            _this.isLoadingResults = false;
-            // Catch if the GitHub API has reached its rate limit. Return empty data.
-            _this.isRateLimitReached = true;
-            return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].of(null);
+        var displayDataChanges = [
+            this._exampleDatabase.dataChange,
+            this._sort.mdSortChange,
+            this._filterChange,
+            this._paginator.page,
+        ];
+        return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].merge.apply(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"], displayDataChanges).map(function () {
+            // Filter data
+            _this.filteredData = _this._exampleDatabase.data.slice().filter(function (item) {
+                var searchStr = (item.obra).toLowerCase();
+                return searchStr.indexOf(_this.filter.toLowerCase()) != -1;
+            });
+            // Sort filtered data
+            var sortedData = _this.sortData(_this.filteredData.slice());
+            // Grab the page's slice of the filtered sorted data.
+            var startIndex = _this._paginator.pageIndex * _this._paginator.pageSize;
+            _this.renderedData = sortedData.splice(startIndex, _this._paginator.pageSize);
+            return _this.renderedData;
         });
     };
     ExampleDataSource.prototype.disconnect = function () { };
+    /** Returns a sorted copy of the database data. */
+    ExampleDataSource.prototype.sortData = function (data) {
+        var _this = this;
+        if (!this._sort.active || this._sort.direction == '') {
+            return data;
+        }
+        return data.sort(function (a, b) {
+            var propertyA = '';
+            var propertyB = '';
+            switch (_this._sort.active) {
+                case 'foto':
+                    _a = [a.foto, b.foto], propertyA = _a[0], propertyB = _a[1];
+                    break;
+                case 'obra':
+                    _b = [a.obra, b.obra], propertyA = _b[0], propertyB = _b[1];
+                    break;
+                case 'st':
+                    _c = [a.st, b.st], propertyA = _c[0], propertyB = _c[1];
+                    break;
+                case 'folio':
+                    _d = [a.folio, b.folio], propertyA = _d[0], propertyB = _d[1];
+                    break;
+                case 'profesional':
+                    _e = [a.profesional, b.profesional], propertyA = _e[0], propertyB = _e[1];
+                    break;
+                case 'date':
+                    _f = [a.date, b.date], propertyA = _f[0], propertyB = _f[1];
+                    break;
+            }
+            var valueA = isNaN(+propertyA) ? propertyA : +propertyA;
+            var valueB = isNaN(+propertyB) ? propertyB : +propertyB;
+            return (valueA < valueB ? -1 : 1) * (_this._sort.direction == 'asc' ? 1 : -1);
+            var _a, _b, _c, _d, _e, _f;
+        });
+    };
     return ExampleDataSource;
 }(__WEBPACK_IMPORTED_MODULE_1__angular_cdk_table__["n" /* DataSource */]));
 
@@ -953,12 +985,8 @@ DataTableDetailService = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -972,19 +1000,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 var DataTableService = (function () {
     function DataTableService(http) {
         this.http = http;
         this.Url = 'http://54.175.253.151'; // URL to web api
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
     }
-    DataTableService.prototype.printRequest = function (url, headers, options) {
-        console.log("[url request] ", url);
-        console.log("[headers] ", this.headers);
-        console.log("[options] ", options);
-    };
     DataTableService.prototype.getPhoto = function (id) {
         return id;
     };
@@ -994,7 +1015,11 @@ var DataTableService = (function () {
             headers: this.headers,
         });
         var body = JSON.stringify({ start: start, end: end, obra: obra, st: st, folio: folio, profesional: profesional });
-        return this.http.post(url, body, options);
+        return this.http
+            .post(url, body, options)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     DataTableService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
